@@ -34,7 +34,9 @@ export default function AdminPage() {
           transmision:transmision,
           dimensions:dimensions,
           fuel:fuel
-        }})
+        }}).then(() => {
+          alert("Car added successfully")
+          window.location.reload()})
     }
   return (
     <div className="admin-page-wrapper">

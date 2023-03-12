@@ -50,7 +50,7 @@ export default function CarDetails() {
               <div className="switch-rim-color-btn color-white" onClick={e => switchRimColor('white', e.target)}></div>
               
           </div>
-        <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:45}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
+        <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
           {/* <color attach="background" args={['rgba(0, 0, 0)']}/> */}
           <PresentationControls speed={1.5} global zoom={.5} polar={[-0.1, Math.PI / 4]}>
             <Stage environment={null}>

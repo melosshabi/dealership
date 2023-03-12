@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import {db} from '../firebase-config'
 import {collection, addDoc} from 'firebase/firestore'
 import '../Styles/Contact.css'
 export default function Contact() {
-
+    const navigate = useNavigate();
     const [usersName, setUsersName] = useState('')
     const [usersEmail, setUsersEmail] = useState('')
     const [usersMessage, setUsersMessage] = useState('')
@@ -12,7 +13,10 @@ export default function Contact() {
         e.preventDefault();
         const collectionRef = collection(db, 'userMessages')
         await addDoc(collectionRef, {usersName:usersName, usersEmail:usersEmail, usersMessage:usersMessage})
-        .then(() => window.location.reload())
+        .then(() => {
+            alert("We have recieved your message, thank you")
+            navigate('/')
+        })
     }
     return (
         <div className="contact-div">

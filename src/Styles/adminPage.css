@@ -22,6 +22,11 @@
     border-radius: 5px;
     border:none;
     padding:10px 15px;
+    transition: all 350ms;
+}
+.carDetails input:focus, .carSpecs input:focus{
+    outline:none;
+    box-shadow: 0 0 10px white;
 }
 .carSpecs{
     height: 48vh;
