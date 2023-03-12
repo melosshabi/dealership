@@ -1,0 +1,114 @@
+.car-wrapper{
+    background-color: rgb(47, 47, 47);
+    position: relative;
+    padding-top: 1px;
+    margin-top: 8vh;
+    z-index: 0;
+}
+#car-canvas{
+    border:1px solid rgba(255, 255, 255, .4);
+    border-radius: 10px;
+}
+.car-details{
+    width: 50%;
+    margin:auto;
+    margin-top: 10vh;
+    color:white;
+}
+.car-specs{
+    margin-top: 5%;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.car-specs p{
+    margin:10px 0;
+}
+.car-specs p:last-of-type{
+    margin-bottom: 100px;
+}
+.car-specs-span{
+    font-weight: 600;
+}
+.colors-wrapper{
+    /* height: 50px; */
+    background-color: cyan;
+}
+.car-colors, .rim-colors{
+    width: 300px;
+    /* background-color: red; */
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+.rim-colors{
+    top: 30%;
+    width: 150px;
+    /* background-color: red; */
+    right: 8%;
+}
+.car-colors::before, .rim-colors::before{
+    content:"Car Color:";
+    position:absolute;
+    top:-60px;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color:white;
+}
+.rim-colors::before{
+    content:"Rims Color:";
+    width:200px;
+}
+.car-colors div, .rim-colors div{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* position: absolute; */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.color-orange{
+    background-color: #c6680a;
+}
+.color-black{
+    background-color: black;
+}
+.color-green{
+    background-color: rgb(9, 116, 43);
+}
+.color-red{
+    background-color: rgb(200, 37, 42);
+}
+.color-gray{
+    background-color: #9c9c9c;
+}
+.color-white{
+    background-color: white;
+}
+.selected-color{
+    transition: all 400ms;
+    box-shadow: 0 0 10px white;
+}
+.order-btn{
+    background: none;
+    border-radius: 5px;
+    border:none;
+    font-size: 1.5em;
+    color:white;
+    background-color: rgb(248, 175, 2);
+    /* margin:auto; */
+    align-self: center;
+    padding:15px 50px;
+}
+.test-div{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50px;
+}
+.color-test{
+    background-color: yellow;
+}

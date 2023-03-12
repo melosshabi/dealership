@@ -1,0 +1,41 @@
+.navbar{
+    height:8vh;
+    width: 100vw;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    color:white;
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid white;
+  }
+  .nav-title{
+    font-weight: 500;
+    margin-left: 2%;
+  }
+  .navbar ul{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-right:2%;
+  }
+  .navbar a{
+    text-decoration:none;
+    color:white;
+    transition: all 400ms;
+  }
+  .navbar a:hover{
+    filter:drop-shadow(0 0 5px black)
+  }
+  /* Linki ne te majten e navbarit */
+  .link-to-home{
+    text-decoration: none;
+    color:White;
+  }
+  .link-to-home:hover{
+    filter:drop-shadow(0 0 10px black)
+  }

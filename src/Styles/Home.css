@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500&display=swap');
+*{
+  padding:0;
+  margin:0;
+}
+::root{
+  --orange:rgb(248, 175, 2);
+  --gray:rgb(47, 47, 47);
+  --black:rgb(29, 29, 29);
+}
+body{
+  font-family: 'Hanken Grotesk', sans-serif;
+  overflow-x:hidden;
+  background-color:rgb(29, 29, 29); 
+}
+.home-image{
+  width: 100vw;
+  height:100vh;
+}
+/* Stilet e kategoris t kereve */
+.car-categories-wrapper{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin:auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.car-btn{
+  background: none;
+  border:none;
+  font-size: 2em;
+  cursor: pointer;
+  color:white;
+}
+.active-btn{
+  border-bottom:3px solid red;
+}
+/* Cars Section*/
+.cars-section{
+  height: auto;
+  width: 90vw;
+  margin:auto;
+  margin-bottom: 10vh;
+  padding:3% 0;
+  border-radius: 10px;
+  background: rgb(47, 47, 47);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cars-div{
+  width: 15%;
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  color:White;
+  background-color:rgb(29, 29, 29);
+  padding:5px 5px;
+  margin:20px 10px;
+  border-radius: 10px;
+}
+.cars-images{
+  width:90%;
+  margin-top: 10px;
+}
+.cars-details{
+  height: 50%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+/*View Details  */
+.cars-details a{
+  width: 50%;
+  color:white;
+  text-decoration:none;
+  background-color: rgb(231, 28, 32);
+  padding:5px 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms;
+}
+.cars-details a:hover{
+  background-color: rgb(205, 30, 33);
+}
+.cars-details a:active{
+  background-color: rgb(195, 34, 37);
+}
+/* Stilet e footer */
+footer{
+  height:15vh;
+  background-color: rgb(47, 47, 47);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-info-div{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 10%;
+  color:white;
+}
+.contact-info-div a{
+  color:white;
+}
