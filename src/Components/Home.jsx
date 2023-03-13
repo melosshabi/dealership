@@ -59,7 +59,7 @@ export default function Home(){
                   <span>{car.carCategory}</span>
                   <p>{car.carBrand.toUpperCase()} {car.carModel}</p>
                   <span>$ {car.carPrice}</span>
-                <Link to='/carDetails' state={{carBrand:car.carBrand, carModel:car.carModel, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice}}>View Details</Link>
+                <Link to='/carDetails' state={{carBrand:car.carBrand, carModel:car.carModel, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
                 </div>
               </div>
             )

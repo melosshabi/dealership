@@ -19,7 +19,7 @@
     width: 300px;
     /* background-color: red; */
     position: absolute;
-    right: 5%;
+    right: 3%;
     top: 15%;
     display: flex;
     justify-content: space-between;
@@ -73,23 +73,17 @@
     transition: all 400ms;
     box-shadow: 0 0 10px white;
 }
-.order-btn{
-    background: none;
-    border-radius: 5px;
-    border:none;
-    font-size: 1.5em;
-    color:white;
-    background-color: rgb(248, 175, 2);
-    align-self: center;
-    padding:15px 50px;
-}
+
 .car-details{
     width: 50%;
     margin:auto;
     margin-top: 10vh;
     color:white;
 }
-/* Detajet e Kerit */
+.car-details h2{
+    margin-top: 25px;
+}
+/* Specifikat e Kerit */
 .car-specs{
     margin-top: 5%;
     padding-bottom: 50px;
@@ -104,4 +98,23 @@
 }
 .car-specs-span{
     font-weight: 600;
+}
+.order-btn{
+    background: none;
+    border-radius: 5px;
+    border:none;
+    font-size: 1.5em;
+    color:white;
+    background-color: rgb(248, 175, 2);
+    align-self: center;
+    padding:15px 50px;
+    cursor:pointer;
+    text-decoration: none;
+    transition:all 300ms
+}
+.order-btn:hover{
+    background-color: rgb(220, 157, 10);
+}
+.order-btn:active{
+    background-color: rgb(208, 149, 11);
 }

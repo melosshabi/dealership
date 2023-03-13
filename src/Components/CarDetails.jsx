@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import {useLocation} from 'react-router-dom'
+import {useLocation, Link} from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import {useGLTF, Stage, PresentationControls } from '@react-three/drei'
 import '../Styles/carStyles.css'
 
 export default function CarDetails() {
   let location = useLocation()
-  let {carBrand, carModel, engine, power, transmision, dimensions, fuel, carPrice } = location.state;
+  let {carBrand, carModel, engine, power, transmision, dimensions, fuel, carPrice, carStock } = location.state;
 
   const [carColor, setCarColor] = useState('black');
   const [rimColor, setRimColor] = useState('black');
@@ -34,7 +34,6 @@ export default function CarDetails() {
     }
   return (
     <div className='car-wrapper'>
-
         {/* Ngjyrat e kerit */}
           <div className="car-colors">
             <div className="switch-car-color-btn color-black selected-color" onClick={e => switchCarColor('black', e.target)}></div>
@@ -59,7 +58,14 @@ export default function CarDetails() {
           </PresentationControls>
         </Canvas>
         <div className="car-details">
+            <p>Stock:{carColor == 'black' ? carStock.blackStock
+                      : carColor == 'orange' ? carStock.orangeStock
+                      : carColor == 'green' ? carStock.greenStock
+                      : carColor == 'red' ? carStock.redStock
+                      : carColor == 'gray' ? carStock.grayStock : ''
+              }</p>
             <h2>{carBrand.toUpperCase() + ' ' + carModel}</h2>
+            
             <div className="car-specs">
                 <p><span className='car-specs-span'>Engine:</span> {engine}</p>
                 <p><span className='car-specs-span'>Power:</span> {power}</p>
@@ -68,7 +74,7 @@ export default function CarDetails() {
                 <p><span className='car-specs-span'>C/D Fuel Economy:</span> {fuel}</p>
                 <p><span className='car-specs-span' >Price:</span> ${carPrice}</p>
                 {/* <button className="add-to-cart">Add To Cart</button> */}
-                <button className='order-btn'>Order Now</button>
+                <Link className='order-btn' to="/OrderPage" state={{brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Order Now</Link>
             </div>
         </div>
     </div>

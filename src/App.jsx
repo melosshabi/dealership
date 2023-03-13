@@ -6,6 +6,7 @@ import About from './Components/About'
 import Contact from './Components/Contact'
 import AdminPage from './Components/AdminPage'
 import CarDetails from './Components/carDetails'
+import OrderPage from './Components/OrderPage'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
             <Route path='/contact' exact element={<Contact/>}/>
             <Route path="/addCar" exact element={<AdminPage/>}/>
             <Route path="/carDetails" exact element={<CarDetails/>}/>
+            <Route path="/OrderPage" exact element={<OrderPage/>}/>
           </Routes>
         </HashRouter>
         </>
