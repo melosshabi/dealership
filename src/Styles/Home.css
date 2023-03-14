@@ -13,10 +13,21 @@ body{
   overflow-x:hidden;
   background-color:rgb(29, 29, 29); 
 }
-.home-image{
-  width: 100vw;
-  height:100vh;
+.home-div{
+  position: relative;
 }
+.images-wrapper{
+  width: 100vw;
+  height: 100vh;
+  /* background-color: red; */
+  position: relative;
+}
+.home-images{
+  width: 100%;
+  height:100%;
+  position: absolute;
+}
+
 /* Stilet e kategoris t kereve */
 .car-categories-wrapper{
   width: 50%;

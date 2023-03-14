@@ -1,0 +1,96 @@
+.order-page-wrapper{
+    margin-top: 8vh;
+    padding-bottom: 100px;
+    background-color: rgb(47, 47, 47);
+    color:white;
+    text-align: center;
+}
+.placing-order-div{
+    position: absolute;
+    width: 100vw;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, .8  );
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.selceted-car-wrapper{
+    text-align: center;
+}
+.selected-car-h3{
+    font-size: 2em;
+    padding-top: 50px;
+    margin-bottom: -50px;
+}
+.selected-car-details{
+    width: 50vw;
+    margin:auto;
+    margin-top: 50px;
+    /* background-color: red; */
+    text-align: center;
+}   
+.order-form{
+    height: 80vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin:auto;
+    margin-top: 50px;
+    /* margin-bottom: 100px; */
+    /* background-color: red; */
+}
+.order-form h3{
+    font-size: 1.8em;
+    margin-bottom: 30px;
+}
+.order-form input{
+    font-size: 1.1em;
+    width: 50%;
+    padding:8px 10px;
+    border:none;
+    border-radius: 5px;
+}
+.order-form select{
+    font-size: 1.1em;
+    width: 52.5%;
+    padding:8px 10px;
+    border:none;
+    border-radius: 5px;
+}
+.order-form input, .order-form select{
+    transition: all 400ms;
+}
+.order-form input:focus, .order-form select:focus{
+    outline:none;
+    box-shadow: 0 0 8px white;
+}
+.purchase-period-wrapper, .select-dealership-wrapper{
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+}
+.purchase-period-wrapper select ,.select-dealership-wrapper select{
+    width: 100%;
+}
+.purchase-period-wrapper label, .select-dealership-wrapper label{
+    margin-bottom: 20px;
+}
+.place-order-btn{
+    font-size: 1.1em;
+    width: 52%;
+    padding:8px 15px;
+    border:none;
+    border-radius: 5px;
+    color:white;
+    background-color: rgb(248, 175, 2);
+    cursor: pointer;
+    transition: all 250ms;
+}
+.place-order-btn:hover{
+    background-color: rgb(220, 157, 10);
+}
+.place-order-btn:active{
+    background-color: rgb(208, 149, 11);
+}

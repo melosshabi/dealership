@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import {storage, db} from '../firebase-config'
 import {uploadBytes, ref, getDownloadURL} from 'firebase/storage'
 import { addDoc, collection } from 'firebase/firestore'
+import Cookies from 'universal-cookie'
 import '../Styles/adminPage.css'
 
+const cookies = new Cookies();
+
 export default function AdminPage() {
-    
+  const navigate = useNavigate();
+  if(!cookies.get('auth-token') || !auth.currentUser.uid === "HA3XPxDZG8Y5YKZt1VTmgU6bf4a2") navigate('/')
   // Detajet e kerit
     const [brand, setBrand] = useState('')
     const [category, setCategory] = useState('')
@@ -46,7 +51,6 @@ export default function AdminPage() {
           blackStock:colorBlack,
           redStock:colorRed,
           orangeStock:colorOrange,
-          redStock:colorRed,
           grayStock:colorGray,
           greenStock:colorGreen
         }

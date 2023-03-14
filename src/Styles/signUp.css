@@ -1,0 +1,58 @@
+.sign-up-wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:white;
+    background-color: rgb(47, 47, 47);
+}
+.sign-up-wrapper h2{
+    font-size: 2.5em;
+    margin-bottom: 70px;
+}
+.sign-up-form{
+    height: 45%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.sign-up-form input{
+    width: 50%;
+    font-size: 1em;
+    padding:10px 15px;
+    border:none;
+    border-radius: 8px;
+    transition: all 400ms;
+}
+.sign-up-form input:focus{
+    outline:none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .8);
+}
+.error{
+    color:rgb(241, 41, 65);
+}
+.sign-up-btn{
+    width: 54%;
+    font-size: 1em;
+    padding: 10px 15px;
+    border:none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(248, 175, 2);
+    color:white;
+    transition: all 250ms;
+}
+.sign-up-btn:hover{
+    background-color: rgb(225, 165, 25);
+}
+.sign-up-btn:active{
+    background-color: rgb(200, 147, 26);
+}
+label a{
+    text-decoration: none;
+    color:rgb(0, 150, 150)
+}

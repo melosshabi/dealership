@@ -6,7 +6,7 @@ import '../Styles/carStyles.css'
 
 export default function CarDetails() {
   let location = useLocation()
-  let {carBrand, carModel, engine, power, transmision, dimensions, fuel, carPrice, carStock } = location.state;
+  let {carBrand, carModel, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
 
   const [carColor, setCarColor] = useState('black');
   const [rimColor, setRimColor] = useState('black');
@@ -73,8 +73,7 @@ export default function CarDetails() {
                 <p><span className='car-specs-span'>Dimensions:</span> {dimensions}</p>
                 <p><span className='car-specs-span'>C/D Fuel Economy:</span> {fuel}</p>
                 <p><span className='car-specs-span' >Price:</span> ${carPrice}</p>
-                {/* <button className="add-to-cart">Add To Cart</button> */}
-                <Link className='order-btn' to="/OrderPage" state={{brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Order Now</Link>
+                <Link className='order-btn' to="/reqTestDrive" state={{documentID:documentID,brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Request Test Drive</Link>
             </div>
         </div>
     </div>

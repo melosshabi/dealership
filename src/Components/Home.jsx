@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import homeImage from '../images/home-image.jpg'
+import homeImage1 from '../images/home-image.jpg'
+import homeImage2 from '../images/home-image2.jpg'
+import homeImage3 from '../images/home-image3.jpg'
 import '../Styles/Home.css'
-import {db, storage} from '../firebase-config'
+import {db} from '../firebase-config'
 import {collection, getDocs} from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function Home(){
-
+   
     const [cars, setCars] = useState([])
-
     // I mer keret n renderin e par t faqes
     useEffect(()=>{
       async function fetchData() {
@@ -43,9 +44,11 @@ export default function Home(){
     }
     return(
       <div className="home-div">
-        <img className="home-image" src={homeImage} />
+        <div className="images-wrapper">
+          <img src={homeImage1} className="home-images"/>
+        </div>
         <div className="car-categories-wrapper">
-          <div className='bmw-category '><button className="car-btn active-btn" onClick={e => switchCarBrands(e.target, 'bmw')}>BMW</button></div>
+          <div className='bmw-category'><button className="car-btn active-btn" onClick={e => switchCarBrands(e.target, 'bmw')}>BMW</button></div>
           <div className='mercedes-category'><button className='car-btn' onClick={e => switchCarBrands(e.target, 'mercedes')}>Mercedes</button></div>
           <div className='audi-category'><button className='car-btn' onClick={e => switchCarBrands(e.target,'audi')}>Audi</button></div>
         </div>
@@ -59,7 +62,7 @@ export default function Home(){
                   <span>{car.carCategory}</span>
                   <p>{car.carBrand.toUpperCase()} {car.carModel}</p>
                   <span>$ {car.carPrice}</span>
-                <Link to='/carDetails' state={{carBrand:car.carBrand, carModel:car.carModel, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
+                <Link to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
                 </div>
               </div>
             )
