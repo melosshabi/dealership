@@ -1,0 +1,45 @@
+.update-stock-wrapper{
+    width: 100vw;
+    height: 92vh;
+    margin-top: 8vh;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    color:white;
+}
+.stock-updater-title{
+    font-size: 2em;
+    margin-top: 2%;
+}
+.car-brands{
+    width: 20%;
+    margin-top: 5%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+}
+.switch-brand-btn{
+    background:none;
+    border:none;
+    font-size: 1.7em;
+    color:white;
+    cursor:pointer
+}
+.active-btn{
+    border-bottom:3px solid red;
+}
+.cars{
+    width: 100%;
+    margin-top: 30px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+.cars-stock-div{
+    /* width: 10%; */
+    background-color: blue;
+}
+.cars-stock-div img{
+    width: 300px;
+}
