@@ -9,6 +9,7 @@
     z-index: 2;
     color:white;
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border-bottom: 1px solid white;
   }
   .nav-title{
@@ -41,6 +42,55 @@
   }
   .sign-in-link:hover{
     background-color: rgba(255, 255, 255, .2);
+  }
+  .sign-out-btn{
+    background: none;
+    border:none;
+    cursor: pointer;
+  }
+  #name-more-options-wrapper{
+    margin-top: 3.5px;
+  }
+  .name{
+    position: relative;
+  }
+  .caret-icon{
+    width: 25px;
+    display: inline;
+    vertical-align: top;
+    transform: rotate(180deg);
+    cursor: pointer;
+    transition: 450ms;
+  }
+  .caret-active{
+    transform: rotate(0deg);
+  }
+  .more-options{
+    width: 150px;
+    height: 0;
+    overflow:hidden;
+    position:absolute;
+    top: 30px;
+    left:-25px;
+    margin-right: 10px;
+    background-color: white;
+    color:black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 350ms;
+  }
+  .active-options{
+    height: 140px;
+    padding:10px 10px;
+  }
+  .more-options a{
+    padding:5px 2px;
+    border-bottom:1px solid black;
+    transition: all 250ms;
+  }
+  .more-options a:hover{
+    background-color: rgba(0, 0, 0, .2);
   }
   /* Linki ne te majten e navbarit */
   .link-to-home{

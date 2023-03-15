@@ -1,0 +1,60 @@
+.users-messages-reader-wrapper{
+    width: 100vw;
+    height: 100vh;
+    margin-top: 8vh;
+    background-color: rgb(47, 47, 47);
+    color:white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.users-messages-reader-wrapper h2{
+    font-size: 2em;
+    position: absolute;
+    top: 20px;
+}
+.messages-wrapper{
+    height: 80vh;
+    width: 50%;
+    overflow-y: scroll;
+    padding:15px 10px;
+    background-color: rgb(29, 29, 29);
+    border-radius: 8px;
+}
+.messages-wrapper::-webkit-scrollbar{
+    width: 10px;
+}
+.messages-wrapper::-webkit-scrollbar-thumb{
+    width: 8px;
+    background-color: rgb(248, 175, 2);
+    border-radius: 8px;
+}
+.messages{
+    min-height: 20%;
+    max-height: fit-content;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.user-info{
+    padding:5px 5px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.messages p{
+    margin-left:5px;
+}
+.message{
+    padding:5px 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+}
+.messages a{
+    color:rgba(0, 150, 150)
+}

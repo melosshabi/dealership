@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {db} from '../firebase-config'
-import {collection, addDoc} from 'firebase/firestore'
+import {collection, addDoc, serverTimestamp} from 'firebase/firestore'
 import '../Styles/Contact.css'
 export default function Contact() {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Contact() {
     async function sendMessage(e){
         e.preventDefault();
         const collectionRef = collection(db, 'userMessages')
-        await addDoc(collectionRef, {usersName:usersName, usersEmail:usersEmail, usersMessage:usersMessage})
+        await addDoc(collectionRef, {usersName:usersName, usersEmail:usersEmail, usersMessage:usersMessage, timeSent:serverTimestamp()})
         .then(() => {
             alert("We have recieved your message, thank you")
             navigate('/')

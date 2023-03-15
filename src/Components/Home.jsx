@@ -9,6 +9,30 @@ import {collection, getDocs} from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function Home(){
+
+    // Funksioni per Slideshow
+    useEffect(() =>{
+      function changeImage(){
+      if(document.readyState != "ready"){
+        (function(){
+          let homeImages = document.getElementsByClassName('home-images')
+          let counter = 1
+          if(counter <= homeImages.length){
+            setInterval(()=> {
+              homeImages[counter].classList.toggle('active-image')
+              counter++
+  
+              if(counter === homeImages.length){
+                counter = 1
+              }
+            }, 3500)
+          }
+        })()}
+      }
+      changeImage()
+      return () => changeImage()
+    }, [])
+  
    
     const [cars, setCars] = useState([])
     // I mer keret n renderin e par t faqes
@@ -45,7 +69,9 @@ export default function Home(){
     return(
       <div className="home-div">
         <div className="images-wrapper">
-          <img src={homeImage1} className="home-images"/>
+          <img src={homeImage1} className="home-images active-image" alt="Home image 1"/>
+          <img src={homeImage2} className="home-images" alt="Home image 2"/>
+          <img src={homeImage3} className="home-images" alt="Home image 3"/>
         </div>
         <div className="car-categories-wrapper">
           <div className='bmw-category'><button className="car-btn active-btn" onClick={e => switchCarBrands(e.target, 'bmw')}>BMW</button></div>

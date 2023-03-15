@@ -19,15 +19,19 @@ body{
 .images-wrapper{
   width: 100vw;
   height: 100vh;
-  /* background-color: red; */
   position: relative;
 }
 .home-images{
-  width: 100%;
+  width: 99%;
   height:100%;
   position: absolute;
+  top:0;
+  opacity: 0;
+  transition: all 250ms;
 }
-
+.active-image{
+  opacity: 1;
+}
 /* Stilet e kategoris t kereve */
 .car-categories-wrapper{
   width: 50%;

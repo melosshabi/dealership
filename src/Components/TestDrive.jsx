@@ -10,7 +10,6 @@ export default function TestDrive(){
     const navigate = useNavigate()
     const location = useLocation();
     let {brand, model, color, rimColor, price} = location.state
-    // console.log(location)
 
     // Funksioni qe e renderon modelin 3D
     function Model(props){

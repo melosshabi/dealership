@@ -1,15 +1,10 @@
-body{
-    /* background-color: white; */
-}
 .about-div{
     margin-top: 25vh;
     color:white;
-    /* background-color: blue; */
 }
 .introduction-div{
     width: 50%;
     margin:auto;
-    /* background-color: red; */
 }
 .introduction-div h2{
     width: 40%;
