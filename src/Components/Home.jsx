@@ -12,13 +12,12 @@ export default function Home(){
 
     // Funksioni per Slideshow
     useEffect(() =>{
-      function changeImage(){
+      
       if(document.readyState != "ready"){
-        (function(){
           let homeImages = document.getElementsByClassName('home-images')
           let counter = 1
           if(counter <= homeImages.length){
-            setInterval(()=> {
+            var imageInterval = setInterval(()=> {
               homeImages[counter].classList.toggle('active-image')
               counter++
   
@@ -27,10 +26,8 @@ export default function Home(){
               }
             }, 3500)
           }
-        })()}
-      }
-      changeImage()
-      return () => changeImage()
+        }
+      return () => clearInterval(imageInterval)
     }, [])
   
    
