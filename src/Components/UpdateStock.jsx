@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
-import {db, auth} from '../firebase-config'
-import {getDocs, collection, updateDoc, doc, getDoc} from 'firebase/firestore'
+import {db} from '../firebase-config'
+import {getDocs, collection, updateDoc, doc} from 'firebase/firestore'
 import '../Styles/updateStock.css'
 
 export default function UpdateStock(){

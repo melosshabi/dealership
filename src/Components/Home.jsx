@@ -78,6 +78,7 @@ export default function Home(){
         
         <section className="cars-section">
           {cars.map(car =>{
+            console.log(car.interiorLink)
             return (
               <div key={uuidv4()} className="cars-div">
                 <img src={car.carPicture}/>
@@ -85,7 +86,7 @@ export default function Home(){
                   <span>{car.carCategory}</span>
                   <p>{car.carBrand.toUpperCase()} {car.carModel}</p>
                   <span>$ {car.carPrice}</span>
-                <Link to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
+                <Link to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, interiorLink:car.interiorLink, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
                 </div>
               </div>
             )

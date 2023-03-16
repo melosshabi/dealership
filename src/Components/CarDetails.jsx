@@ -6,8 +6,9 @@ import '../Styles/carStyles.css'
 
 export default function CarDetails() {
   let location = useLocation()
-  let {carBrand, carModel, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
-
+  let {carBrand, carModel, interiorLink, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
+  console.log(interiorLink)
+  console.log(location)
   const [carColor, setCarColor] = useState('black');
   const [rimColor, setRimColor] = useState('black');
 
@@ -35,6 +36,7 @@ export default function CarDetails() {
   return (
     <div className='car-wrapper'>
         {/* Ngjyrat e kerit */}
+          
           <div className="car-colors">
             <div className="switch-car-color-btn color-black selected-color" onClick={e => switchCarColor('black', e.target)}></div>
             <div className="switch-car-color-btn color-orange" onClick={e => switchCarColor('orange', e.target)}></div>
@@ -47,7 +49,7 @@ export default function CarDetails() {
           <div className="rim-colors">
           <div className="switch-rim-color-btn color-black selected-color" onClick={e => switchRimColor('black', e.target)}></div>
               <div className="switch-rim-color-btn color-white" onClick={e => switchRimColor('white', e.target)}></div>
-              
+              <Link className='interior-btn' to="/threeSixty" state={{InteriorLink:interiorLink}}>View Interior</Link>
           </div>
         <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
           {/* <color attach="background" args={['rgba(0, 0, 0)']}/> */}

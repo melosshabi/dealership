@@ -13,6 +13,7 @@ import SignUp from './Components/SignUp'
 import UsersMessagesReader from './Components/UsersMessagesReader'
 import TestDriveRequests from './Components/TestDriveRequests'
 import UpdateStock from './Components/UpdateStock'
+import ThreeSixtyView from './Components/ThreeSixtyView'
 // Ikonat
 import signOutIcon from './images/sign-out-icon.png'
 import caret from './images/caret.svg'
@@ -71,6 +72,7 @@ export default function App() {
             <Route path="/usersMessages" exact element={<UsersMessagesReader/>}/>
             <Route path="/testDriveRequests" exact element={<TestDriveRequests/>}/>
             <Route path="/updateStock" exact element={<UpdateStock/>}/> 
+            <Route path="/threeSixty" exact element={<ThreeSixtyView/>}/>
           </Routes>
         </HashRouter>
         </>

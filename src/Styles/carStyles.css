@@ -27,8 +27,20 @@
 .rim-colors{
     top: 30%;
     width: 150px;
-    /* background-color: red; */
     right: 8%;
+    /* position: relative; */
+}
+.interior-btn{
+    position: absolute;
+    bottom:-50px;
+    left:40px;
+    cursor: pointer;
+    background: none;
+    border:none;
+    color:white;
+}
+.interior-btn:hover{
+    text-decoration: underline;
 }
 .car-colors::before, .rim-colors::before{
     content:"Car Color:";
