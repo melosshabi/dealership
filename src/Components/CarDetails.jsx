@@ -3,12 +3,11 @@ import {useLocation, Link} from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import {useGLTF, Stage, PresentationControls } from '@react-three/drei'
 import '../Styles/carStyles.css'
+import Xicon from '../images/x-icon.svg';
 
 export default function CarDetails() {
   let location = useLocation()
   let {carBrand, carModel, interiorLink, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
-  console.log(interiorLink)
-  console.log(location)
   const [carColor, setCarColor] = useState('black');
   const [rimColor, setRimColor] = useState('black');
 
@@ -33,6 +32,14 @@ export default function CarDetails() {
       targetButton.classList.add('selected-color')
       setRimColor(color)
     }
+    // Funksioni qe e shfaq interiorin
+    function toggleInterior(){
+      const interiorWrapper = document.getElementsByClassName('interior-wrapper')[0]
+      interiorWrapper.classList.toggle('active-interior')
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+      document.body.classList.toggle('bodyScrollDisabled')
+    }
   return (
     <div className='car-wrapper'>
         {/* Ngjyrat e kerit */}
@@ -49,7 +56,7 @@ export default function CarDetails() {
           <div className="rim-colors">
           <div className="switch-rim-color-btn color-black selected-color" onClick={e => switchRimColor('black', e.target)}></div>
               <div className="switch-rim-color-btn color-white" onClick={e => switchRimColor('white', e.target)}></div>
-              <Link className='interior-btn' to="/threeSixty" state={{InteriorLink:interiorLink}}>View Interior</Link>
+              <button className='interior-btn' onClick={toggleInterior}>View Interior</button>
           </div>
         <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
           {/* <color attach="background" args={['rgba(0, 0, 0)']}/> */}
@@ -76,6 +83,13 @@ export default function CarDetails() {
                 <p><span className='car-specs-span'>C/D Fuel Economy:</span> {fuel}</p>
                 <p><span className='car-specs-span' >Price:</span> ${carPrice}</p>
                 <Link className='order-btn' to="/reqTestDrive" state={{documentID:documentID,brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Request Test Drive</Link>
+                
+                {/* div-i i interiorit */}
+                <div className="interior-wrapper">
+                  <button className="close-interior-btn" onClick={toggleInterior}><img src={Xicon}/></button>
+                  <script src="https://scripts.sirv.com/sirv.js"></script>
+                  <iframe src={interiorLink} width="90%" height="90%" frameBorder="0"></iframe>
+                </div>
             </div>
         </div>
     </div>

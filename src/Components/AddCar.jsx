@@ -16,6 +16,7 @@ export default function AddCar() {
     const [category, setCategory] = useState('')
     const [model, setModel] = useState('')
     const [price, setPrice] = useState('')
+    const [interiorLink, setInteriorLink] = useState('')
     const [picture, setPicture] = useState()
     // Specifikat e kerit
     const [engine, setEngine] = useState('')
@@ -40,7 +41,7 @@ export default function AddCar() {
         .then(res => pictureURL = res)
 
         const carCollectionRef = collection(db, brand)
-        await addDoc(carCollectionRef, {carBrand:brand, carModel:model, carCategory:category, carPrice:price, carPicture:pictureURL, carSpecs:{
+        await addDoc(carCollectionRef, {carBrand:brand, carModel:model, carCategory:category, carPrice:price, carPicture:pictureURL, interiorLink:interiorLink, carSpecs:{
           engine:engine,
           power:power,
           transmision:transmision,
@@ -66,6 +67,7 @@ export default function AddCar() {
         <input type="text" required placeholder='Brand' value={brand} onChange={e => setBrand(e.target.value)}/>
         <input type="text" required placeholder='Category' value={category} onChange={e => setCategory(e.target.value)}/>
         <input type="text" required placeholder='Model' value={model} onChange={e => setModel(e.target.value)}/>
+        <input type="text" required placeholder='Link for the 360 interior view' value={interiorLink} onChange={e => setInteriorLink(e.target.value)}/>
         <input type="text" required placeholder='Price' value={price}  onChange={e => setPrice(e.target.value)}/>
         </div>
         

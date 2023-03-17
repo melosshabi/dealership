@@ -78,7 +78,6 @@ export default function Home(){
         
         <section className="cars-section">
           {cars.map(car =>{
-            console.log(car.interiorLink)
             return (
               <div key={uuidv4()} className="cars-div">
                 <img src={car.carPicture}/>
