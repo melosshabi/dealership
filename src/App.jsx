@@ -17,6 +17,7 @@ import TestingSirvAPI from './Components/TestingSirvAPI'
 // Ikonat
 import signOutIcon from './images/sign-out-icon.png'
 import caret from './images/caret.svg'
+import xIcon from './images/x-icon.svg'
 // Funksionet e firebase-it
 import { signOut } from 'firebase/auth'
 import { auth } from './firebase-config'
@@ -45,20 +46,45 @@ export default function App() {
     moreOptionsDiv.classList.toggle('active-options')
     caret.classList.toggle('caret-active')
   }
+
+  function toggleSidebar(){
+    const sidebar = document.getElementsByClassName('sidebar')[0]
+    sidebar.classList.toggle('activeSidebar')
+  }
   return (
       <>
         <HashRouter>
            <nav className='navbar'>
             <h1 className='nav-title'><Link className='link-to-home' to="/#"><span style={{color:'rgb(248, 175, 2)'}}>auto</span>motor</Link></h1>
-            <ul>
-              <li><a className="navigation-links" href="/#">Home</a></li>
-              <li><a className="navigation-links" href="/#/about">About us</a></li>
-              <li><a className="navigation-links" href="/#/contact">Contact</a></li>
+            <ul className='navbar-ul'>
+              <li><Link className="navigation-links" to="/">Home</Link></li>
+              <li><Link className="navigation-links" to="/about">About us</Link></li>
+              <li><Link className="navigation-links" to="/contact">Contact</Link></li>
               {!localStorage.getItem('name') && <li><Link to="/signIn" className='sign-in-link'>Sign In</Link></li>}
               <div id="name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} <div className="more-options"><Link to="/usersMessages" onClick={toggleMoreOptions}>User Messages</Link><Link to="/testDriveRequests" onClick={toggleMoreOptions}>Test Drive Requests</Link><Link to="/addCar" onClick={toggleMoreOptions}>Add Car</Link><Link to="/updateStock" onClick={toggleMoreOptions}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <img className="caret-icon" src={caret} alt="Caret" onClick={toggleMoreOptions}/> }</div>
               {isAuth && <button className="sign-out-btn" onClick={logOut}><img src={signOutIcon} alt="Sign out button"/></button>}
             </ul>
-            
+
+            <div className="hamburger-btn" onClick={toggleSidebar}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div className="sidebar">
+              <button className="close-sidebar-btn" onClick={toggleSidebar}><img src={xIcon} alt="X icon"/></button>
+              <ul className='sidebar-ul'>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/about'>About us</Link></li>
+                <li><Link to='/contact'>Contact</Link></li>
+              </ul>
+              <div className="sign-in-sidebar-div">
+                {!localStorage.getItem('name') && <li><Link to="/signIn" className='sign-in-link'>Sign In</Link></li>}
+                <div id="sidebar-name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} <div className="sidebar-more-options"><Link to="/usersMessages" onClick={toggleMoreOptions}>User Messages</Link><Link to="/testDriveRequests" onClick={toggleMoreOptions}>Test Drive Requests</Link><Link to="/addCar" onClick={toggleMoreOptions}>Add Car</Link><Link to="/updateStock" onClick={toggleMoreOptions}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <button className="sidebar-more-options-btn">···</button> }</div>
+                {isAuth && <button className="sign-out-btn" onClick={logOut}><img src={signOutIcon} alt="Sign out button"/></button>}
+              </div>
+            </div>
+
         </nav>
           <Routes>
             <Route path="/" exact element={<Home/>}/>
