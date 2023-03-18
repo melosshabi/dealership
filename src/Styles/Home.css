@@ -65,8 +65,8 @@ body{
   flex-wrap: wrap;
 }
 .cars-div{
-  width: 15%;
-  height: 35vh;
+  width: 20%;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -77,13 +77,10 @@ body{
   margin:20px 10px;
   border-radius: 10px;
 }
-.cars-images{
-  width:90%;
-  margin-top: 10px;
-}
 .cars-details{
   height: 50%;
   margin-left: 10px;
+  font-size: 1.1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,4 +123,84 @@ footer{
 }
 .contact-info-div a{
   color:white;
+}
+/* Nest Hub Max */
+@media (max-width:1280px) and (max-height:800px){
+  .home-images{
+    width: 100vw;
+  }
+}
+/* Nest Hub */
+@media (max-width: 1024px) and (max-height:600px){
+  .navbar ul{
+    width: 32%;
+  }
+  .car-btn{
+    font-size: 1.5em;
+  }
+  .cars-div{
+    width: 25%;
+    height: 50vh;
+  }
+  .cars-div img{
+    width: 200px;
+    margin:auto;
+  }
+}
+/* Surface Pro 7 */
+@media (max-width: 912px) and (max-height:1368px){
+  .navbar{
+    height: 5vh;
+  }
+  .navbar ul{
+    width: 35%;
+  }
+  .images-wrapper{
+    height: 50vh;
+    width: 102vw;
+  }
+  .cars-div{
+    height: 98%;
+    width: 30%;
+    margin-top:0;
+  }
+}
+/* iPad Air */
+@media (max-width:820px) and (max-height:1180px){
+  .navbar ul{
+    width: 40%;
+    /* background-color:red; */
+  }
+  
+}
+/* iPad Mini */
+@media (max-width:768px) and (max-height:1024px){
+  .navbar ul{
+    display: none;
+  }
+  .car-categories-wrapper{
+    width: 55%;
+  }
+  .cars-div{
+    height: 30vh;
+  }
+}
+/* Surface Duo */
+@media (max-width:540px) and (max-height:720px){
+  .navbar{
+    height: 8vh;
+  }
+  .navbar ul{
+    display: none;
+  }
+  .car-categories-wrapper{
+    width: 70%;
+  }
+  .car-btn{
+    font-size: 1.5em;
+  }
+  .cars-div{
+    width: 45vw;
+    height: 45vh;
+  }
 }

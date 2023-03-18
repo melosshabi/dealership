@@ -15,12 +15,10 @@
 }
 /* Ngjyrat */
 .colors-wrapper{
-    /* height: 50px; */
     background-color: cyan;
 }
 .car-colors, .rim-colors{
     width: 300px;
-    /* background-color: red; */
     position: absolute;
     right: 3%;
     top: 15%;
@@ -33,18 +31,7 @@
     right: 8%;
     /* position: relative; */
 }
-.interior-btn{
-    position: absolute;
-    bottom:-50px;
-    left:40px;
-    cursor: pointer;
-    background: none;
-    border:none;
-    color:white;
-}
-.interior-btn:hover{
-    text-decoration: underline;
-}
+
 .car-colors::before, .rim-colors::before{
     content:"Car Color:";
     position:absolute;
@@ -118,7 +105,6 @@
     width: 100vw;
     height: 92vh;
     background-color: rgba(0, 0, 0, .9);
-    /* background-color: red; */
     position: absolute;
     top:-110vh;
     left:0;
@@ -146,11 +132,17 @@
 .close-interior-btn img{
     width: 35px;
 }
-.order-btn{
+.btns-wrapper{
+    width: 80%;
+    margin:auto;
+    display: flex;
+    justify-content: space-around;
+}
+.order-btn, .interior-btn{
     background: none;
     border-radius: 5px;
     border:none;
-    font-size: 1.5em;
+    font-size: 1.1em;
     color:white;
     background-color: rgb(248, 175, 2);
     align-self: center;
@@ -159,9 +151,12 @@
     text-decoration: none;
     transition:all 300ms
 }
-.order-btn:hover{
+.interior-btn{
+    padding:17px 50px;
+}
+.order-btn:hover, .interior-btn:hover{
     background-color: rgb(220, 157, 10);
 }
-.order-btn:active{
+.order-btn:active, .interior-btn:hover{
     background-color: rgb(208, 149, 11);
 }

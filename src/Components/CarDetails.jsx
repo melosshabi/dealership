@@ -56,7 +56,7 @@ export default function CarDetails() {
           <div className="rim-colors">
           <div className="switch-rim-color-btn color-black selected-color" onClick={e => switchRimColor('black', e.target)}></div>
               <div className="switch-rim-color-btn color-white" onClick={e => switchRimColor('white', e.target)}></div>
-              <button className='interior-btn' onClick={toggleInterior}>View Interior</button>
+              
           </div>
         <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
           {/* <color attach="background" args={['rgba(0, 0, 0)']}/> */}
@@ -74,7 +74,7 @@ export default function CarDetails() {
                       : carColor == 'gray' ? carStock.grayStock : ''
               }</p>
             <h2>{carBrand.toUpperCase() + ' ' + carModel}</h2>
-            
+              
             <div className="car-specs">
                 <p><span className='car-specs-span'>Engine:</span> {engine}</p>
                 <p><span className='car-specs-span'>Power:</span> {power}</p>
@@ -82,7 +82,10 @@ export default function CarDetails() {
                 <p><span className='car-specs-span'>Dimensions:</span> {dimensions}</p>
                 <p><span className='car-specs-span'>C/D Fuel Economy:</span> {fuel}</p>
                 <p><span className='car-specs-span' >Price:</span> ${carPrice}</p>
+                <div className="btns-wrapper">
+                <button className="interior-btn" onClick={toggleInterior}>View Interior</button>
                 <Link className='order-btn' to="/reqTestDrive" state={{documentID:documentID,brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Request Test Drive</Link>
+                </div>
                 
                 {/* div-i i interiorit */}
                 <div className="interior-wrapper">
