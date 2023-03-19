@@ -17,7 +17,7 @@ export default function TestingSirvAPI(){
 
     xhr.open("POST", "https://api.sirv.com/v2/token");
     xhr.setRequestHeader("content-type", "application/json");
-    xhr.setRequestHeader("authorization", "Bearer mela05");
+    xhr.setRequestHeader("authorization", "Bearer BEARER_TOKEN_HERE");
 
     xhr.send(data);
 
