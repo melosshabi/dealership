@@ -28,3 +28,21 @@
 .introduction-div a{
     color:rgba(0, 150, 150)
 }
+/* Surface Pro 7 */
+@media (max-width:912px) and (max-height:1368px){
+    .introduction-div{
+        width: 90%;
+    }
+}
+/* Surface Duo */
+@media (max-width:540px) and (max-height:720px){
+    .introduction-div h2{
+        width: 80%;
+    }
+}
+/* iPhone XR */
+@media (max-width:414px) and (max-height:896px){
+    .introduction-div h2{
+        width: 70%;
+    }
+}

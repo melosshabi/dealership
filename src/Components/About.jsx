@@ -1,5 +1,7 @@
+import React from 'react'
 import {Link} from 'react-router-dom'
 import '../Styles/About.css'
+
 export default function About() {
     return(
         <div className='about-div'>
@@ -12,7 +14,6 @@ export default function About() {
             </p>
             <br/>
             <p>If you would like to check out some of our cars visit our <Link to="/">Home Page</Link></p>
-            {/* <br/> */}
             <p>Or if you have any questions please do not hesitate to send us a message at:<Link to="mailto:automotor@biz.com">automotor@biz.com </Link> 
              or through our <Link to="/contact">Contact</Link> Page</p>
             </div>

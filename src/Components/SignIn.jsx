@@ -23,12 +23,10 @@ export default function SignIn(){
         try{
         await signInWithEmailAndPassword(auth, email, password)
         .then(res => {
-            console.log(res)
             cookies.set('auth-token', res.user.refreshToken)
             localStorage.setItem('name',res.user.displayName)
             localStorage.setItem('isAuth', true)
             localStorage.setItem('userID', res.user.uid)
-            // alert("Fuck")
             window.location.reload()
             
     })}catch(err){

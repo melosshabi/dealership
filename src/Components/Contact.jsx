@@ -20,7 +20,7 @@ export default function Contact() {
     }
     return (
         <div className="contact-div">
-            <h1>Contact Us</h1>
+            <h2>Contact Us</h2>
             <form className="contact-form" onSubmit={e => sendMessage(e)}>
                 <input type="text" placeholder='Your Name' value={usersName} onChange={e => setUsersName(e.target.value)}/>
                 <input type="email" placeholder='Your Email' value={usersEmail} onChange={e => setUsersEmail(e.target.value)}/>

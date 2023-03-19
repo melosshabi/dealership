@@ -24,13 +24,12 @@ export default function Home(){
               if(counter === homeImages.length){
                 counter = 1
               }
-            }, 3500)
+            }, 3000)
           }
         }
       return () => clearInterval(imageInterval)
     }, [])
   
-   
     const [cars, setCars] = useState([])
     // I mer keret n renderin e par t faqes
     useEffect(()=>{

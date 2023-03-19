@@ -58,3 +58,36 @@
 .messages a{
     color:rgba(0, 150, 150)
 }
+/* iPad Pro 12 inch */
+@media (max-width:1024px) and (max-height:1366px){
+    .messages-wrapper{
+        width: 80%;
+    }
+}
+/* Surface Pro 7 */
+@media (max-width:912px) and (max-height:1368px){
+    .users-messages-reader-wrapper{
+        margin-top: 5vh;
+        justify-content: flex-start;
+    }
+    .messages-wrapper{
+        width: 80vw;
+        margin-top: 10vh;
+    }
+}
+/* Surface Duo */
+@media (max-width:540px) and (max-height:720px){
+    .users-messages-reader-wrapper h2{
+        font-size: 1.8em;
+        top: 4vh;
+    }
+    .messages-wrapper{
+        margin-top: 15vh;
+    }
+}
+/* iPhone 13/13 Pro Max */
+@media (max-width:428px) and (max-height:926px){
+    .messages-wrapper{
+        width: 95%;
+    }
+}
