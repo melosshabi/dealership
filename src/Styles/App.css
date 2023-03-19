@@ -108,7 +108,7 @@
   height: 30px;
   width: 35px;
   margin-right: 10px;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   cursor: pointer;
