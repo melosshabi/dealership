@@ -39,6 +39,7 @@ export default function CarDetails() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
       document.body.classList.toggle('bodyScrollDisabled')
+      document.documentElement.style.overflow = 'hidden'
     }
   return (
     <div className='car-wrapper'>
@@ -58,8 +59,7 @@ export default function CarDetails() {
               <div className="switch-rim-color-btn color-white" onClick={e => switchRimColor('white', e.target)}></div>
               
           </div>
-        <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
-          {/* <color attach="background" args={['rgba(0, 0, 0)']}/> */}
+        <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'60%', 'height':'40vh'}} >
           <PresentationControls speed={1.5} global zoom={.5} polar={[-0.1, Math.PI / 4]}>
             <Stage environment={null}>
               <Model scale={0.01}/>
@@ -84,7 +84,7 @@ export default function CarDetails() {
                 <p><span className='car-specs-span' >Price:</span> ${carPrice}</p>
                 <div className="btns-wrapper">
                 <button className="interior-btn" onClick={toggleInterior}>View Interior</button>
-                <Link className='order-btn' to="/reqTestDrive" state={{documentID:documentID,brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Request Test Drive</Link>
+                <Link className='request-test-drive-btn' to="/reqTestDrive" state={{documentID:documentID,brand:carBrand, model:carModel, color:carColor, rimColor:rimColor, price:carPrice}}>Request Test Drive</Link>
                 </div>
                 
                 {/* div-i i interiorit */}

@@ -10,8 +10,11 @@
 }
 /* Modeli 3D */
 #car-canvas{
+    margin:auto;
+    margin-top: 2%;
     border:1px solid rgba(255, 255, 255, .4);
     border-radius: 10px;
+    touch-action: none;
 }
 /* Ngjyrat */
 .colors-wrapper{
@@ -29,9 +32,7 @@
     top: 30%;
     width: 150px;
     right: 8%;
-    /* position: relative; */
 }
-
 .car-colors::before, .rim-colors::before{
     content:"Car Color:";
     position:absolute;
@@ -49,7 +50,6 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* position: absolute; */
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -75,7 +75,6 @@
     transition: all 400ms;
     box-shadow: 0 0 10px white;
 }
-
 .car-details{
     width: 50%;
     margin:auto;
@@ -138,7 +137,7 @@
     display: flex;
     justify-content: space-around;
 }
-.order-btn, .interior-btn{
+.request-test-drive-btn, .interior-btn{
     background: none;
     border-radius: 5px;
     border:none;
@@ -154,9 +153,187 @@
 .interior-btn{
     padding:17px 50px;
 }
-.order-btn:hover, .interior-btn:hover{
+.request-test-drive-btn:hover, .interior-btn:hover{
     background-color: rgb(220, 157, 10);
 }
-.order-btn:active, .interior-btn:hover{
+.request-test-drive-btn:active, .interior-btn:hover{
     background-color: rgb(208, 149, 11);
+}
+/* Nest Hub Max */
+@media (max-width:1280px) and (max-height:800px){
+    #car-canvas{
+        margin:0;
+        margin-top: 5%;
+        margin-left:20%;
+        /* background-color: red; */
+    }
+    .car-details{
+        margin-left:20%;
+    }
+}
+/* Nest Hub */
+@media (max-width:1024px) and (max-height:600px){
+    #car-canvas, .car-details{
+        margin-left: 10%;
+    }
+    .car-specs{
+        width: 110%;
+    }
+    .interior-btn{
+        padding:15px 35px;
+    }
+    .close-interior-btn{
+        top:0;
+        right:0;
+    }
+}
+/* iPad Air 12 inch */
+@media (max-width:1024px) and (max-height:1366px){
+    .car-wrapper{
+        /* height: 105vh; */
+        margin-top: 6vh;
+    }
+    .car-details{
+        width: 70%;
+    }
+    #car-canvas, .car-details{
+        margin-left:5%;
+    }
+    #car-canvas{
+        margin-top: 10vh;
+    }
+    .interior-wrapper{
+        height: 105vh;
+    }
+}
+/* Surface Pro 7 */
+@media (max-width:912px) and (max-height:1368px){
+    .car-wrapper{
+        margin-top: 5vh;
+        height: 105vh;
+    }
+    #car-canvas {
+        margin-left: 1%;
+    }
+    .car-details{
+        margin-left:3%
+    }
+    .car-details{
+        width: 65%;
+    }
+}
+/* iPad Air */
+@media (max-width:820px) and (max-height:1180px){
+    .car-wrapper{
+        height: 128vh;
+    }
+    #car-canvas{
+        margin:auto;
+        margin-top: 5%;
+    }
+    .car-colors, .rim-colors{
+        top:40%;
+        left:50%;
+        transform: translateX(-50%);
+    }
+    .rim-colors{
+        top:48%;
+    }
+    .rim-colors::before{
+        left:60%;
+    }
+    .car-details{
+        width: 95%;
+        margin-top: 50%;
+    }
+}
+/* iPad  */
+@media (max-width:810px) and (max-height:1080px){
+    .car-wrapper{
+        height: 135vh;
+    }
+}
+/* iPad Mini */
+@media (max-width:768px) and (max-height:1024px){
+    .car-wrapper{
+        height: 137vh;
+    }
+}
+/* Surface Duo */
+@media (max-width:540px) and (max-height:720px){
+    .car-wrapper{
+        height: 190vh;
+    }
+    #car-canvas{
+        margin:auto;
+        margin-top: 10%;
+    }
+    .car-colors, .rim-colors{
+        top:32%;
+        left:50%;
+        transform: translateX(-50%);
+    }
+    .rim-colors{
+        top: 42%;
+        left:53%;
+    }
+    .car-details{
+        width: 100%;
+        margin-top: 75%;
+        margin-left:0;
+    }
+    .interior-btn, .request-test-drive-btn{
+        padding:15px 25px;
+    }
+}
+/* iPhone 12/13 Pro Max */
+@media (max-width:428px) and (max-height:926px){
+    #car-canvas{
+        padding:0 80px;
+    }
+    .rim-colors{
+        top:50%;
+    }
+    .car-details{
+        margin-top: 80%;
+    }
+    .interior-btn, .request-test-drive-btn {
+        padding:10px 15px;
+    }
+}
+/* iPhone XS Max */
+@media (max-width:414px) and (max-height:896px){
+    .car-wrapper{
+        height: 142vh;
+    }
+    #car-canvas{
+        padding:0 70px;
+    }
+}
+/* iPhone X/XS  */
+@media (max-width:375px) and (max-height:812px){
+    .car-wrapper{
+        height: 155vh;
+    }
+    .car-colors{
+        top: 35%;
+    }
+    .rim-colors{
+        top: 45%;
+    }
+    .car-details{
+        margin-top: 90%;
+    }
+    .interior-btn, .request-test-drive-btn{
+        padding:15px 5px;
+    }
+}
+/* S21Fe */
+@media (max-width:360px) and (max-height:800px){
+    .car-wrapper{
+        height: 165vh;
+    }
+    .interior-btn, .request-test-drive-btn{
+        padding:15px 5px;
+    }
 }
