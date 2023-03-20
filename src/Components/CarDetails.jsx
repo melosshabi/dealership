@@ -39,7 +39,12 @@ export default function CarDetails() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
       document.body.classList.toggle('bodyScrollDisabled')
-      document.documentElement.style.overflow = 'hidden'
+
+      if(!document.documentElement.classList.contains('htmlScrollDisabled')) {
+        document.documentElement.classList.add('htmlScrollDisabled')
+      } else if(document.documentElement.classList.contains('htmlScrollDisabled')){
+        document.documentElement.classList.remove('htmlScrollDisabled')
+      } 
     }
   return (
     <div className='car-wrapper'>

@@ -1,3 +1,6 @@
+.htmlScrollDisabled{
+    overflow-y: hidden;
+}
 .bodyScrollDisabled{
     overflow-y:hidden;
 }
@@ -328,12 +331,15 @@
         padding:15px 5px;
     }
 }
-/* S21Fe */
+/* S21FE */
 @media (max-width:360px) and (max-height:800px){
     .car-wrapper{
         height: 165vh;
     }
     .interior-btn, .request-test-drive-btn{
         padding:15px 5px;
+    }
+    .close-interior-btn{
+        top: 30px;
     }
 }
