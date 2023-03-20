@@ -60,7 +60,7 @@ export default function AdminPage() {
     }
   return (
     <div className="admin-page-wrapper">
-      <form onSubmit={e => UploadCar(e)}>
+      <form onSubmit={e => UploadCar(e)} className="add-car-form">
         <div className="carDetails">
           <h2>Car Details</h2>
         <input type="text" required placeholder='Brand' value={brand} onChange={e => setBrand(e.target.value)}/>

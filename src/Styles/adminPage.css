@@ -18,7 +18,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* background-color: cyan; */
 }
 .carSpecs{
     height: 48vh;
@@ -63,4 +62,142 @@
 }
 .submit-btn:active{
     background-color: rgb(200, 147, 26);
+}
+/* Nest Hub Max */
+@media (max-width:1280px) and (max-height:800px){
+    .admin-page-wrapper{
+        height: 170vh;
+    }
+}
+/* Nest Hub */
+@media (max-width:1024px) and (max-height:600px){
+    .admin-page-wrapper{
+        height: auto;
+    }
+    .carDetails, .car-colors-stock{
+        height: 50vh;
+    }
+    .carSpecs{
+        height: 65vh;
+    }
+}
+/* iPad Pro 12 inch */
+@media (max-width:1024px) and (max-height:1366px){
+    .admin-page-wrapper{
+        width: 100vw;
+        padding:0 0;
+        margin-top: 6vh;
+        border-radius: 0;
+    }
+    .carDetails h2, .carSpecs h2, .car-colors-stock h2{
+        font-size: 2em;
+    }
+}
+/* Surface Pro 7 */
+@media (max-width:912px) and (max-height:1368px){
+    .carDetails input, .carSpecs input, .car-colors-stock input{
+        width: 70%;
+    }
+}
+/* iPad Pro 11 inch */
+@media (max-width:834px) and (max-height:1194px){
+    .admin-page-wrapper{
+        margin-top: 5vh;
+    }
+}
+/* iPad Air */
+@media (max-width:820px) and (max-height:1180px){
+    .carDetails h2{
+        margin: 30px 0;
+    }
+    .carDetails input, .carSpecs input, .car-colors-stock input{
+        width: 75%;
+    }
+}
+/* iPad Mini */
+@media (max-width:768px) and (max-height:1024px){
+    .carDetails{
+        margin-top: -350px;
+    }
+    .carSpecs, .car-colors-stock{
+        height: 45%;
+    }
+}
+/* Surface Duo */
+@media (max-width:540px) and (max-height:720px){
+    .admin-page-wrapper{
+        height: 195vh;
+        margin-top: 8vh;
+    }
+    .carDetails, .carSpecs{
+        height: 55%;
+        /* margin-top: -40%; */
+    }
+    .carDetails h2{
+        margin-top: 90px;
+    }
+}
+/* iPhone XS Max */
+@media (max-width:414px) and (max-height:896px){
+    .admin-page-wrapper{
+        height: 180vh;
+    }
+    .carDetails{
+        height: 50%;
+    }
+    .carSpecs{
+        height: 60%;
+    }
+    .car-colors-stock{
+        height: 55%;
+    }
+    .carDetails h2{
+        margin-top: -50px;
+    }
+    .carDetails input, .carSpecs input, .car-colors-stock input{
+        width: 85%;
+    }
+}
+/* Galaxy Note 20 Ultra */
+@media (max-width:412px) and (max-height:915px){
+    .admin-page-wrapper{
+        height: 165vh;
+    }
+    .carDetails, .carSpecs, .car-colors-stock{
+        height: 55%;
+    }
+}
+/* Galaxy S20+ */
+@media (max-width:384px) and (max-height:854px){
+    .admin-page-wrapper{
+        height: 175vh;
+    }
+    .carDetails {
+        height: 50%;
+    }
+    .carSpecs{
+        height: 60%;
+    } 
+    .car-colors-stock{
+        height: 55%;
+    }
+}
+/*  iPhone X/ XS */
+@media (max-width:375px) and (max-height:812px){
+    .carDetails h2, .carSpecs h2, .car-colors-stock h2{
+        font-size: 1.8em;
+        margin:0;
+    }
+}
+/* S21FE */
+@media (max-width:360px) and (max-height:800px){
+    .admin-page-wrapper{
+        height: 180vh;
+    }
+}
+/* Galaxy S10/S10+*/
+@media (max-width:360px) and (max-height:760px){
+    .carDetails h2{
+        margin-top: 30px;
+    }
 }

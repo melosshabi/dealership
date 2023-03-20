@@ -50,11 +50,6 @@ export default function App() {
   function toggleSidebar(){
     const sidebar = document.getElementsByClassName('sidebar')[0]
     sidebar.classList.toggle('active-sidebar')
-    // if(sidebar.classList.contains('active-sidebar')){
-    //   document.documentElement.style.overflow = "hidden"
-    // }else {
-    //   document.documentElement.style.overflow = 'scroll'
-    // }
   }
 
   // Shfaq me shume opsione per sidebar
