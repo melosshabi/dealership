@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {HashRouter, Routes, Route, Link} from 'react-router-dom'
+import './Styles/App.css'
 // Komponentet
 import Home from './Components/Home'
 import About from './Components/About'
@@ -46,18 +47,10 @@ export default function App() {
     caret.classList.toggle('caret-active')
   }
 
-
   function toggleSidebar(){
     const sidebar = document.getElementsByClassName('sidebar')[0]
-    sidebar.classList.toggle('active-sidebar')
+    sidebar.classList.toggle('activeSidebar')
   }
-
-  // Shfaq me shume opsione per sidebar
-  function toggleSidebarMoreOptions(){
-    const sidebarMoreOptions = document.getElementsByClassName('sidebar-more-options')[0]
-    sidebarMoreOptions.classList.toggle('active-sidebar-more-options')
-    }
-  
   return (
       <>
         <HashRouter>
@@ -81,14 +74,14 @@ export default function App() {
             <div className="sidebar">
               <button className="close-sidebar-btn" onClick={toggleSidebar}><img src={xIcon} alt="X icon"/></button>
               <ul className='sidebar-ul'>
-                <li><Link to='/' onClick={toggleSidebar}>Home</Link></li>
-                <li><Link to='/about' onClick={toggleSidebar}>About us</Link></li>
-                <li><Link to='/contact' onClick={toggleSidebar}>Contact</Link></li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/about'>About us</Link></li>
+                <li><Link to='/contact'>Contact</Link></li>
               </ul>
               <div className="sign-in-sidebar-div">
-                {!localStorage.getItem('name') && <Link to="/signIn" className='sign-in-link' onClick={toggleSidebar}>Sign In</Link>}
-                <div id="sidebar-name-more-options-wrapper">{localStorage.getItem('name') && <label className='sidebar-name'>{localStorage.getItem('name')} <div className="sidebar-more-options"><Link to="/usersMessages" onClick={() => {toggleSidebar(), toggleSidebarMoreOptions()}}>User Messages</Link><Link to="/testDriveRequests" onClick={() => {toggleSidebar(), toggleSidebarMoreOptions()}}>Test Drive Requests</Link><Link to="/addCar" onClick={() => {toggleSidebar(), toggleSidebarMoreOptions()}}>Add Car</Link><Link to="/updateStock" onClick={() => {toggleSidebar(), toggleSidebarMoreOptions()}}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <button className="sidebar-more-options-btn" onClick={toggleSidebarMoreOptions}><label>···</label></button> }</div>
-                {isAuth && <button className="sign-out-btn" onClick={logOut} ><img src={signOutIcon} alt="Sign out button"/></button>}
+                {!localStorage.getItem('name') && <li><Link to="/signIn" className='sign-in-link'>Sign In</Link></li>}
+                <div id="sidebar-name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} <div className="sidebar-more-options"><Link to="/usersMessages" onClick={toggleMoreOptions}>User Messages</Link><Link to="/testDriveRequests" onClick={toggleMoreOptions}>Test Drive Requests</Link><Link to="/addCar" onClick={toggleMoreOptions}>Add Car</Link><Link to="/updateStock" onClick={toggleMoreOptions}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <button className="sidebar-more-options-btn">···</button> }</div>
+                {isAuth && <button className="sign-out-btn" onClick={logOut}><img src={signOutIcon} alt="Sign out button"/></button>}
               </div>
             </div>
 
@@ -110,4 +103,4 @@ export default function App() {
         </HashRouter>
         </>
   )
-  }
+}

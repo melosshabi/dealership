@@ -362,6 +362,9 @@ footer{
   .hamburger-btn{
     display: flex;
   }
+  .hamburger-btn div{
+    display: flex;
+  }
   .car-categories-wrapper{
     width: 55%;
   }

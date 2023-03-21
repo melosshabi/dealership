@@ -305,12 +305,19 @@
     }
 }
 /* iPhone XS Max */
-@media (max-width:414px) and (max-height:896px){
+@media (max-width:415px) and (max-height:896px){
     .car-wrapper{
-        height: 142vh;
+        height: 160vh;
+    }
+    .car-colors{
+        top: 34%;
+    }
+    .rim-colors{
+        top:43%;
     }
     #car-canvas{
-        padding:0 70px;
+        /* border:5px solid red; */
+        padding:0 0;
     }
 }
 /* iPhone X/XS  */
@@ -335,6 +342,12 @@
 @media (max-width:360px) and (max-height:800px){
     .car-wrapper{
         height: 165vh;
+    }
+    .car-colors::before{
+        font-size: 1.9em;
+    }
+    .rim-colors::before{
+        font-size: 1.9em;
     }
     .interior-btn, .request-test-drive-btn{
         padding:15px 5px;

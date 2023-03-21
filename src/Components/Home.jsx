@@ -70,6 +70,7 @@ export default function Home(){
           <img src={homeImage3} className="home-images" alt="Home image 3"/>
         </div>
         <div className="car-categories-wrapper">
+          <Link to="/api">Test</Link>
           <div className='bmw-category'><button className="car-btn active-btn" onClick={e => switchCarBrands(e.target, 'bmw')}>BMW</button></div>
           <div className='mercedes-category'><button className='car-btn' onClick={e => switchCarBrands(e.target, 'mercedes')}>Mercedes</button></div>
           <div className='audi-category'><button className='car-btn' onClick={e => switchCarBrands(e.target,'audi')}>Audi</button></div>
