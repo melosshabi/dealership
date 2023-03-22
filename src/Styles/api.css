@@ -4,7 +4,6 @@
     color:white;
     margin:auto;
     margin-top: 20%;
-    background-color: red;
 }
 .test-form {
     display: flex;
@@ -20,7 +19,7 @@
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
   }
-  
+/*   
   button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
@@ -31,14 +30,14 @@
     color: white;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-  }
+  } */
   
-  button:hover {
+  /* button:hover {
     background-color: #006c8e;
   }
   
   button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
+  } */
        

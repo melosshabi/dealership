@@ -1,21 +1,19 @@
 import React, {useState} from 'react'
 import {useLocation, Link} from 'react-router-dom'
-import { Canvas } from '@react-three/fiber'
-import {useGLTF, Stage, PresentationControls } from '@react-three/drei'
 import '../Styles/carStyles.css'
 import Xicon from '../images/x-icon.svg';
 
 export default function CarDetails() {
   let location = useLocation()
-  let {carBrand, carModel, interiorLink, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
+  let {carBrand, carModel, exteriorLink,interiorLink, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
   const [carColor, setCarColor] = useState('black');
   const [rimColor, setRimColor] = useState('black');
 
   // Funksioni qe e renderon modelin 3D
-  function Model(props){
-      const {scene} = useGLTF(`/3d-models/${carBrand}/${carModel}/${carColor}${carModel}${rimColor}Rims.glb`)
-      return <primitive object={scene} {...props}/>
-    }
+  // function Model(props){
+  //     const {scene} = useGLTF(`/3d-models/${carBrand}/${carModel}/${carColor}${carModel}${rimColor}Rims.glb`)
+  //     return <primitive object={scene} {...props}/>
+  //   }
 
     // Funksioni qe e ndron ngjyren e kerit
     function switchCarColor(color, targetButton){
@@ -64,13 +62,16 @@ export default function CarDetails() {
               <div className="switch-rim-color-btn color-white" onClick={e => switchRimColor('white', e.target)}></div>
               
           </div>
-        <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'60%', 'height':'40vh'}} >
+        {/* <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'60%', 'height':'40vh'}} >
           <PresentationControls speed={1.5} global zoom={.5} polar={[-0.1, Math.PI / 4]}>
             <Stage environment={null}>
               <Model scale={0.01}/>
             </Stage>
           </PresentationControls>
-        </Canvas>
+        </Canvas> */}
+        <div id="car-canvas">
+        <iframe src={exteriorLink} width="100%" height="100%" frameBorder="0"></iframe>
+        </div>
         <div className="car-details">
             <p>Stock:{carColor == 'black' ? carStock.blackStock
                       : carColor == 'orange' ? carStock.orangeStock
