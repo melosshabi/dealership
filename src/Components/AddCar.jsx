@@ -16,12 +16,8 @@ export default function AddCar() {
   const [clientId, setClientID] = useState('YTOfy23xePUwC6JXeZoBiIqod55')
   const [clientSecret, setClientSecret] = useState('rAEG/1mIGnVnYYXjyhLS7Qli168dAEPN9DkswJS2TJ15D75Kcf5L9fmOO0CU0/WRu8TcMoeNKPUvHD+E9sRXyw==')
   const [token, setToken] = useState('')
-  const [test, setTest] = useState([])
 
   useEffect(() => {
-    const newDiv = document.createElement('div')
-    setTest(prevTest => [...prevTest, newDiv])
-    console.log(test)
     const getAccessToken = async () => {
   
       const response = await fetch("https://api.sirv.com/v2/token", {
@@ -53,8 +49,6 @@ export default function AddCar() {
     const [category, setCategory] = useState('')
     const [model, setModel] = useState('')
     const [price, setPrice] = useState('')
-    const [exteriorPictures, setExteriorPictures] = useState(null)
-    const [interiorPictures, setInteriorPictures] = useState(null)
 
     // Specifikat e kerit
     const [engine, setEngine] = useState('')
@@ -63,49 +57,102 @@ export default function AddCar() {
     const [dimensions, setDimensions] = useState('')
     const [fuel, setFuel] = useState('')
 
-    function addColor(){
-
-      const colorsDiv = document.getElementsByClassName('car-colors-stock')[0]
-      const newInput = document.createElement('input')
-      const newImageInput = document.createElement('input');
-      const newLabel = document.createElement('label')
-      newLabel.innerText = 'Select the images:'
-      newImageInput.type = 'file'
-      // newImageInput.attr
-      newInput.placeholder = 'Enter color name'
-      colorsDiv.prepend(newImageInput)
-      colorsDiv.prepend(newLabel)
-      colorsDiv.prepend(newInput)
-    }
+    // Ngjyrat
+    
+    const [color1, setColor1] = useState('')
+    const [color1Stock, setColor1Stock] = useState(undefined)
+    const [color1Images, setColor1Images] = useState(null)
+    const [color2, setColor2] = useState('')
+    const [color2Stock, setColor2Stock] = useState(undefined)
+    const [color2Images, setColor2Images] = useState(null)
+    const [color3, setColor3] = useState('')
+    const [color3Stock, setColor3Stock] = useState(undefined)
+    const [color3Images, setColor3Images] = useState(null)
+    const [interiorPictures, setInteriorPictures] = useState(null)
+    const [mainPicture, setMainPicture] = useState(null)
 
     async function UploadCar(e){
         e.preventDefault();
 
+        let uploadingDiv = document.getElementsByClassName('uploading-div')[0]
+        uploadingDiv.style.display = 'flex'
+
         // for loop-i per mi upload-u fotot e exteriorit
-        for(let i = 0; i < exteriorPictures.length; i++){
+        for(let i = 0; i < color1Images.length; i++){
 
           const formData = new FormData();
-          formData.append("file", exteriorPictures[i]);
-          formData.append("filename", exteriorPictures[i].name);
-          formData.append("content_type", exteriorPictures[i].type);
-          const uploadUrl = `https://api.sirv.com/v2/files/upload?filename=%2F/${brand + '-' + model}-exterior-folder/test/${formData.get(
+          formData.append("file", color1Images[i]);
+          formData.append("filename", color1Images[i].name);
+          formData.append("content_type", color1Images[i].type);
+          const uploadUrl = `https://api.sirv.com/v2/files/upload?filename=%2F/${brand + '-' + model + '-' + color1}/${formData.get(
             "filename"
           )}`;
           const response = await fetch(uploadUrl, {
             method: "POST",
             headers: {
               Authorization: `Bearer ${token}`,
-              "Content-Type": exteriorPictures[i].type,
+              "Content-Type": color1Images[i].type,
             },
-            body: exteriorPictures[i],
+            body: color1Images[i],
           });
-          // setIsLoading(false);
+
           if (!response.ok) {
             alert(`Error uploading file: ${response.status} ${response.statusText}`);
             return;
           }
           console.log("File uploaded successfully!");
         }
+
+        for(let i = 0; i < color2Images.length; i++){
+
+          const formData = new FormData();
+          formData.append("file", color2Images[i]);
+          formData.append("filename", color2Images[i].name);
+          formData.append("content_type", color2Images[i].type);
+          const uploadUrl = `https://api.sirv.com/v2/files/upload?filename=%2F/${brand + '-' + model + '-' + color2}/${formData.get(
+            "filename"
+          )}`;
+          const response = await fetch(uploadUrl, {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": color2Images[i].type,
+            },
+            body: color2Images[i],
+          });
+
+          if (!response.ok) {
+            alert(`Error uploading file: ${response.status} ${response.statusText}`);
+            return;
+          }
+          console.log("File uploaded successfully!");
+        }
+         
+        for(let i = 0; i < color3Images.length; i++){
+
+          const formData = new FormData();
+          formData.append("file", color3Images[i]);
+          formData.append("filename", color3Images[i].name);
+          formData.append("content_type", color3Images[i].type);
+          const uploadUrl = `https://api.sirv.com/v2/files/upload?filename=%2F/${brand + '-' + model + '-' + color3}/${formData.get(
+            "filename"
+          )}`;
+          const response = await fetch(uploadUrl, {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": color3Images[i].type,
+            },
+            body: color3Images[i],
+          });
+
+          if (!response.ok) {
+            alert(`Error uploading file: ${response.status} ${response.statusText}`);
+            return;
+          }
+          console.log("File uploaded successfully!");
+        }
+
         // for loop-i per mi upload-u fotot e interiorit
         for(let i = 0; i < interiorPictures.length; i++){
 
@@ -132,11 +179,13 @@ export default function AddCar() {
           console.log("File uploaded successfully!");
         }
 
-      const exteriorSpin = `https://mela05.sirv.com/${brand + '-' + model}-exterior-folder/${brand + '-' + model}-exterior-folder.spin`;
-      const interiorSpin = `https://mela05.sirv.com/${brand + '-' + model}-interior-folder/${brand + '-' + model}-interior-folder.spin`;
+      const color1Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color1}/${brand + '-' + model + '-' + color1}.spin?autospin=off&fullscreen=off`;
+      const color2Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color2}/${brand + '-' + model + '-' + color2}.spin?autospin=off&fullscreen=off`;
+      const color3Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color3}/${brand + '-' + model + '-' + color3}.spin?autospin=off&fullscreen=off`;
+      const interiorSpin = `https://mela05.sirv.com/${brand + '-' + model}-interior-folder/${brand + '-' + model}-interior-folder.spin?autospin=off&fullscreen=off`;
 
         const carCollectionRef = collection(db, brand)
-        await addDoc(carCollectionRef, {carBrand:brand, carModel:model, carCategory:category, carPrice:price,  exteriorLink: exteriorSpin,interiorLink:interiorSpin, carSpecs:{
+        await addDoc(carCollectionRef, {carBrand:brand, carModel:model, carCategory:category, carPrice:price, mainPicture:mainPicture,interiorLink:interiorSpin, carSpecs:{
           engine:engine,
           power:power,
           transmision:transmision,
@@ -144,11 +193,15 @@ export default function AddCar() {
           fuel:fuel
         }, 
         carStock:{
-          blackStock:colorBlack,
-          redStock:colorRed,
-          orangeStock:colorOrange,
-          grayStock:colorGray,
-          greenStock:colorGreen
+          color1Name:color1,
+          color1Stock:color1Stock,
+          color1Spin:color1Spin,
+          color2Name:color2,
+          color2Stock:color2Stock,
+          color2Spin:color2Spin,
+          color3Name:color3,
+          color3Stock:color3Stock,
+          color3Spin:color3Spin
         }
       }).then(() => {
           alert("Car added successfully")
@@ -156,42 +209,54 @@ export default function AddCar() {
     }
   return (
     <div className="add-car-wrapper">
-      <form className='add-car-form'>
+      <div className="uploading-div"><h2>Uploading Pictures...</h2></div>
+      <form className='add-car-form' onSubmit={e => UploadCar(e)}>
         <div className="car-details">
           <h2>Car Details</h2>
-          <input type="text" placeholder='Brand'/>
-          <input type="text" placeholder='Model'/>
-          <input type="text" placeholder='Category'/>
+          <input type="text" required placeholder='Brand' value={brand} onChange={e => setBrand(e.target.value)}/>
+          <input type="text" required placeholder='Model'value={model} onChange={e => setModel(e.target.value)}/>
+          <input type="text" required placeholder='Category' value={category} onChange={e => setCategory(e.target.value)}/>
+          <label>Select a main picture</label>
+          <input type="file" onChange={e => setMainPicture(e.target.files[0])}/>
         </div>
 
         <div className="car-specs">
           <h2>Car Specs</h2>
-        <input type="text" placeholder='Engine'/>
-        <input type="text" placeholder='Transmission'/>
-        <input type="text" placeholder='Fuel'/>
-        <input type="text" placeholder='Dimensions'/>
+        <input type="text" required placeholder='Engine' value={engine} onChange={e => setEngine(e.target.value)}/>
+        <input type="text" required placeholder='Transmission' value={transmision} onChange={e => setTransmision(e.target.value)}/>
+        <input type="text" required placeholder='Fuel' value={fuel} onChange={e => setFuel(e.target.value)}/>
+        <input type="text" required placeholder='Dimensions' value={dimensions} onChange={e => setDimensions(e.target.value)}/>
         </div>
 
         <div className="car-stock-wrapper">
           <h2>Car Stock</h2>
           <div className="color-wrapper">
-            <input className="color-name" type="text" placeholder='Enter color name'/>
+            <input className="color-name"  required type="text" placeholder='Enter color name' value={color1} onChange={e => setColor1(e.target.value)}/>
+            <input className='color-stock' required  type='number' placeholder='Enter the stock of the selected color' value={color1Stock} onChange={e => setColor1Stock(e.target.value)}/>
             <label>Select the images of the desired color</label>
-            <input type="file" multiple/> 
+            <input type="file" multiple onChange={e => setColor1Images(e.target.files)}/> 
           </div>
 
           <div className="color-wrapper">
-            <input className="color-name" type="text" placeholder='Enter color name'/>
+          <input className="color-name" type="text" required placeholder='Enter color name' value={color2} onChange={e => setColor2(e.target.value)}/>
+            <input className='color-stock' type='number' required placeholder='Enter the stock of the selected color' value={color2Stock} onChange={e => setColor2Stock(e.target.value)}/>
             <label>Select the images of the desired color</label>
-            <input type="file" multiple/> 
+            <input type="file" multiple onChange={e => setColor2Images(e.target.files)}/> 
           </div>
 
           <div className="color-wrapper">
-            <input type="text" placeholder='Enter color name'/>
+          <input className="color-name" type="text" required placeholder='Enter color name' value={color3} onChange={e => setColor3(e.target.value)}/>
+            <input className='color-stock' type='number' required placeholder='Enter the stock of the selected color' value={color3Stock} onChange={e => setColor3Stock(e.target.value)}/>
             <label>Select the images of the desired color</label>
-            <input type="file" multiple/> 
+            <input type="file" multiple onChange={e => setColor3Images(e.target.files)}/>
+
+            <h3>Interior Pictures</h3>
+            <input type="file" multiple onChange={e => setInteriorPictures(e.target.files)}/>
           </div>
+
         </div>
+
+        <button className="add-car-btn">Add Car</button>
       </form>
     </div>
   )

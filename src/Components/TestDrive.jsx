@@ -1,22 +1,14 @@
 import React, {useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import '../Styles/testDrive.css'
-import {Canvas} from '@react-three/fiber'
-import {useGLTF, Stage, PresentationControls} from '@react-three/drei'
 import {db} from '../firebase-config'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
 export default function TestDrive(){
     const navigate = useNavigate()
     const location = useLocation();
-    let {brand, model, color, rimColor, price} = location.state
-
-    // Funksioni qe e renderon modelin 3D
-    function Model(props){
-        const {scene} = useGLTF(`/3d-models/${brand}/${model}/${color}${model}${rimColor}Rims.glb`)
-        return <primitive object={scene} {...props}/>
-    }
-    
+    let {brand, model, colorName, colorSpin, price} = location.state
+    console.log(colorName, colorSpin)
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
@@ -32,7 +24,7 @@ export default function TestDrive(){
         
         const testDriveRequests = collection(db, 'testDriveRequests')
         await addDoc(testDriveRequests, {fullName:fullName, email:email, phoneNumber:phoneNumber, purchasePeriod:purchasePeriod, selectedDealership:preferredDealership, timeRequestWasMade:serverTimestamp(),
-                     carDetails:{carBrand:brand, carModel:model, carColor:color, rimColor:rimColor, price:price}
+                     carDetails:{carBrand:brand, carModel:model, carColor:colorName, price:price}
                      })
                      .then(() => {
                         placingOrderh1.innerText = "Your request was made successfully. Thank you"
@@ -46,20 +38,14 @@ export default function TestDrive(){
             <div className="placing-order-div">
                 <h1>Placing Order...</h1>
             </div>
-            <h3 className='selected-car-h3'>Selected Car:</h3>
-
-            <div className="selected-car-wrapper">
-                
-            <Canvas id="car-canvas" dpr={[1, 2]} camera={{fov:15}} style={{'width':'50%', 'height':'40vh', 'margin':'auto', 'marginTop':'10vh'}}>
-             <PresentationControls speed={1.5} global zoom={.5} polar={[-0.1, Math.PI / 4]}>
-                <Stage environment={null}>
-                    <Model scale={0.01}/>
-                </Stage>
-             </PresentationControls>
-            </Canvas>
+            
+            <div className="selected-car-spin-wrapper">
+                <h3 className='selected-car-h3'>Selected Car:</h3>
+                <script src="https://scripts.sirv.com/sirv.js"></script>
+                <iframe src={colorSpin}  width="100%" height="100%" frameBorder="0"></iframe>
             </div>
 
-            <div className="selected-car-details">
+            <div className="selected-test-drive-car-details">
                 <h2>{brand.toUpperCase() + ' ' + model}</h2>
             </div>
             <form className="order-form" onSubmit={e => placeOrder(e)}>
@@ -70,7 +56,7 @@ export default function TestDrive(){
 
                 <div className="purchase-period-wrapper">
                     <label>When do you plan to buy a car?</label>
-                    <select onChange={e => {console.log(e.target.value); setPurchasePeriod(e.target.value)}}>
+                    <select onChange={e => setPurchasePeriod(e.target.value)}>
                         <option>Select</option>
                         <option>1 month</option>
                         <option>3 months</option>
@@ -82,7 +68,7 @@ export default function TestDrive(){
 
                 <div className="select-dealership-wrapper">
                 <label>Select Dealership</label>
-                <select onChange={e => {console.log(e.target.value); setPreferredDealership(e.target.value)}}>
+                <select onChange={e => setPreferredDealership(e.target.value)}>
                     <option>Select</option>
                     <option>Automotor London</option>
                     <option>Automotor Washington DC</option>

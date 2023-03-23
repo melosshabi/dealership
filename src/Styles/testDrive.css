@@ -14,18 +14,20 @@
     justify-content: center;
     align-items: center;
 }
-.selceted-car-wrapper{
-    text-align: center;
-}
 .selected-car-h3{
     font-size: 2em;
-    padding-top: 50px;
-    margin-bottom: -50px;
 }
-.selected-car-details{
+.selected-car-spin-wrapper{
+    width: 100vw;
+    height: 300px;
+}
+.selected-car-spin-wrapper iframe{
+    margin-top: 2%;
+}
+.selected-test-drive-car-details{
     width: 50vw;
     margin:auto;
-    margin-top: 50px;
+    margin-top: 90px;
     text-align: center;
 }   
 .order-form{

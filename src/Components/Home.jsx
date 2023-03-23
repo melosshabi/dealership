@@ -70,7 +70,6 @@ export default function Home(){
           <img src={homeImage3} className="home-images" alt="Home image 3"/>
         </div>
         <div className="car-categories-wrapper">
-          <Link to="/api">Test</Link>
           <div className='bmw-category'><button className="car-btn active-btn" onClick={e => switchCarBrands(e.target, 'bmw')}>BMW</button></div>
           <div className='mercedes-category'><button className='car-btn' onClick={e => switchCarBrands(e.target, 'mercedes')}>Mercedes</button></div>
           <div className='audi-category'><button className='car-btn' onClick={e => switchCarBrands(e.target,'audi')}>Audi</button></div>
@@ -81,12 +80,12 @@ export default function Home(){
             console.log(car)
             return (
               <div key={uuidv4()} className="cars-div">
-                <img src={car.carPicture}/>
+                <img src={car.mainPicture}/>
                 <div className="cars-details">
                   <span>{car.carCategory}</span>
                   <p>{car.carBrand.toUpperCase()} {car.carModel}</p>
                   <span>$ {car.carPrice}</span>
-                <Link className="view-details-btn" to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, exteriorLink:car.exteriorLink,interiorLink:car.interiorLink, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
+                <Link className="view-details-btn" to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, color1Name:car.carStock.color1Name, color1Spin:car.carStock.color1Spin, color1Stock:car.carStock.color1Stock, color2Name:car.carStock.color2Name, color2Spin:car.carStock.color2Spin, car2Stock:car.carStock.color2Stock, color3Name:car.carStock.color3Name, color3Spin:car.carStock.color3Spin, color3Stock:car.carStock.color3Stock, interiorLink:car.interiorLink, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
                 </div>
               </div>
             )

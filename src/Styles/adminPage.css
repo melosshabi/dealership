@@ -1,209 +1,82 @@
-.admin-page-wrapper{
-    width:100vw;
-    height: 190vh;
-    margin:auto;
-    margin-top:4.3%;
-    padding:20px 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, .5);
-    background-color: rgb(47, 47, 47);
+.add-car-wrapper{
+    min-height: 100vh;
+    margin-top: 8vh;
     color:white;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
-.carDetails, .carSpecs, .car-colors-stock{
-    height: 35vh;
+.uploading-div{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);
+    margin-top:-20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+.add-car-form{
+    min-height: 90vh;
+    max-width: 50vw;
+    margin:auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgb(248, 175, 2);
+    background-color: rgb(47, 47, 47);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
-.carDetails{
-    height: 45vh;
+.car-details, .car-specs, .car-stock-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:20px 0;
 }
-.carSpecs{
-    height: 48vh;
-    margin:50px 0;
+.car-details{
+    width: 41%;
 }
-.car-colors-stock{
-    height: 40vh;
-    margin-bottom: 10vh;
+.car-specs h2{
+    width: 100%;
+    text-align: center;
 }
-.carDetails input, .carSpecs input, .car-colors-stock input{
-    width: 50%;
+.car-details input, .car-specs input{
+    width:100%;
+}
+.add-car-form input{
     font-size: 1em;
-    border-radius: 5px;
+    padding:5px 10px;
     border:none;
-    padding:10px 15px;
-    transition: all 350ms;
+    border-radius: 8px;
+    margin:10px 0;
 }
-.carDetails input:focus, .carSpecs input:focus, .car-colors-stock input:focus{
-    outline:none;
-    box-shadow: 0 0 10px white;
+.color-wrapper{
+    min-height: 100px;
+    margin:10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.carSpecs input:last-of-type{
+.color-wrapper input{
+    width: 100%;
+}
+.color-wrapper input[type="file"]{
+    text-align: center;
     font-size: .8em;
 }
-.submit-btn{
-    width: 55%;
+.color-wrapper label{
+    font-size: 1em;
+}
+.add-car-btn{
     margin:15px 0;
-    padding:8px 15px;
-    border-radius: 8px;
+    padding:5px 75px;
     border:none;
-    margin-left:50%;
-    transform:translateX(-50%);
-    font-size: 1.2em;
-    cursor: pointer;
-    background-color: rgb(248, 175, 2);
+    border-radius: 8px;
+    background-color: rgba(248, 175, 2);
     color:white;
-    transition:all 250ms;
-}
-.submit-btn:hover{
-    background-color: rgb(225, 165, 25);
-}
-.submit-btn:active{
-    background-color: rgb(200, 147, 26);
-}
-.three-sixty-wrapper{
-
-}
-/* Nest Hub Max */
-@media (max-width:1280px) and (max-height:800px){
-    .admin-page-wrapper{
-        height: 170vh;
-    }
-}
-/* Nest Hub */
-@media (max-width:1024px) and (max-height:600px){
-    .admin-page-wrapper{
-        height: auto;
-    }
-    .carDetails, .car-colors-stock{
-        height: 50vh;
-    }
-    .carSpecs{
-        height: 65vh;
-    }
-}
-/* iPad Pro 12 inch */
-@media (max-width:1024px) and (max-height:1366px){
-    .admin-page-wrapper{
-        width: 100vw;
-        padding:0 0;
-        margin-top: 6vh;
-        border-radius: 0;
-    }
-    .carDetails h2, .carSpecs h2, .car-colors-stock h2{
-        font-size: 2em;
-    }
-}
-/* Surface Pro 7 */
-@media (max-width:912px) and (max-height:1368px){
-    .carDetails input, .carSpecs input, .car-colors-stock input{
-        width: 70%;
-    }
-}
-/* iPad Pro 11 inch */
-@media (max-width:834px) and (max-height:1194px){
-    .admin-page-wrapper{
-        margin-top: 5vh;
-    }
-}
-/* iPad Air */
-@media (max-width:820px) and (max-height:1180px){
-    .carDetails h2{
-        margin: 30px 0;
-    }
-    .carDetails input, .carSpecs input, .car-colors-stock input{
-        width: 75%;
-    }
-}
-/* iPad Mini */
-@media (max-width:768px) and (max-height:1024px){
-    .carDetails{
-        margin-top: -350px;
-    }
-    .carSpecs, .car-colors-stock{
-        height: 45%;
-    }
-}
-/* Surface Duo */
-@media (max-width:540px) and (max-height:720px){
-    .admin-page-wrapper{
-        height: 195vh;
-        margin-top: 8vh;
-    }
-    .carDetails, .carSpecs{
-        height: 55%;
-        /* margin-top: -40%; */
-    }
-    .carDetails h2{
-        margin-top: 90px;
-    }
-}
-/* iPhone XS Max */
-@media (max-width:414px) and (max-height:896px){
-    .admin-page-wrapper{
-        height: 180vh;
-    }
-    .carDetails{
-        height: 50%;
-    }
-    .carSpecs{
-        height: 60%;
-    }
-    .car-colors-stock{
-        height: 55%;
-    }
-    .carDetails h2{
-        margin-top: -50px;
-    }
-    .carDetails input, .carSpecs input, .car-colors-stock input{
-        width: 85%;
-    }
-}
-/* Galaxy Note 20 Ultra */
-@media (max-width:412px) and (max-height:915px){
-    .admin-page-wrapper{
-        height: 165vh;
-    }
-    .carDetails, .carSpecs, .car-colors-stock{
-        height: 55%;
-    }
-}
-/* Galaxy S20+ */
-@media (max-width:384px) and (max-height:854px){
-    .admin-page-wrapper{
-        height: 175vh;
-    }
-    .carDetails {
-        height: 50%;
-    }
-    .carSpecs{
-        height: 60%;
-    } 
-    .car-colors-stock{
-        height: 55%;
-    }
-}
-/*  iPhone X/ XS */
-@media (max-width:375px) and (max-height:812px){
-    .carDetails h2, .carSpecs h2, .car-colors-stock h2{
-        font-size: 1.8em;
-        margin:0;
-    }
-}
-/* S21FE */
-@media (max-width:360px) and (max-height:800px){
-    .admin-page-wrapper{
-        height: 180vh;
-    }
-}
-/* Galaxy S10/S10+*/
-@media (max-width:360px) and (max-height:760px){
-    .carDetails h2{
-        margin-top: 30px;
-    }
+    font-size: 1.5em;
+    cursor: pointer;
 }
