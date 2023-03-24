@@ -52,7 +52,6 @@ export default function AddCar() {
 
     // Specifikat e kerit
     const [engine, setEngine] = useState('')
-    const [power, setPower] = useState('')
     const [transmision, setTransmision] = useState('')
     const [dimensions, setDimensions] = useState('')
     const [fuel, setFuel] = useState('')
@@ -100,7 +99,7 @@ export default function AddCar() {
             alert(`Error uploading file: ${response.status} ${response.statusText}`);
             return;
           }
-          console.log("File uploaded successfully!");
+          console.log("Color 1 File uploaded successfully!");
         }
 
         for(let i = 0; i < color2Images.length; i++){
@@ -125,7 +124,7 @@ export default function AddCar() {
             alert(`Error uploading file: ${response.status} ${response.statusText}`);
             return;
           }
-          console.log("File uploaded successfully!");
+          console.log("Color 2 File uploaded successfully!");
         }
          
         for(let i = 0; i < color3Images.length; i++){
@@ -150,7 +149,7 @@ export default function AddCar() {
             alert(`Error uploading file: ${response.status} ${response.statusText}`);
             return;
           }
-          console.log("File uploaded successfully!");
+          console.log("Color 3 File uploaded successfully!");
         }
 
         // for loop-i per mi upload-u fotot e interiorit
@@ -176,18 +175,23 @@ export default function AddCar() {
             alert(`Error uploading file: ${response.status} ${response.statusText}`);
             return;
           }
-          console.log("File uploaded successfully!");
+          console.log("Interior File uploaded successfully!");
         }
 
-      const color1Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color1}/${brand + '-' + model + '-' + color1}.spin?autospin=off&fullscreen=off`;
-      const color2Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color2}/${brand + '-' + model + '-' + color2}.spin?autospin=off&fullscreen=off`;
-      const color3Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color3}/${brand + '-' + model + '-' + color3}.spin?autospin=off&fullscreen=off`;
-      const interiorSpin = `https://mela05.sirv.com/${brand + '-' + model}-interior-folder/${brand + '-' + model}-interior-folder.spin?autospin=off&fullscreen=off`;
+        const color1Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color1}/${brand + '-' + model + '-' + color1}.spin?autospin=off&fullscreen=off`;
+        const color2Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color2}/${brand + '-' + model + '-' + color2}.spin?autospin=off&fullscreen=off`;
+        const color3Spin = `https://mela05.sirv.com/${brand + '-' + model + '-' + color3}/${brand + '-' + model + '-' + color3}.spin?autospin=off&fullscreen=off`;
+        const interiorSpin = `https://mela05.sirv.com/${brand + '-' + model}-interior-folder/${brand + '-' + model}-interior-folder.spin?autospin=off&fullscreen=off`;
+
+        let mainPictureURL;
+        const storageRef = ref(storage, `${brand}/${model}/${model}`)
+        await uploadBytes(storageRef, mainPicture)
+        await getDownloadURL(storageRef)
+        .then(res => mainPictureURL = res)
 
         const carCollectionRef = collection(db, brand)
-        await addDoc(carCollectionRef, {carBrand:brand, carModel:model, carCategory:category, carPrice:price, mainPicture:mainPicture,interiorLink:interiorSpin, carSpecs:{
+        await addDoc(carCollectionRef, {carBrand:brand, carModel:model, carCategory:category, carPrice:price, mainPicture:mainPictureURL,interiorLink:interiorSpin, carSpecs:{
           engine:engine,
-          power:power,
           transmision:transmision,
           dimensions:dimensions,
           fuel:fuel
@@ -206,7 +210,7 @@ export default function AddCar() {
       }).then(() => {
           alert("Car added successfully")
           window.location.reload()})
-    }
+    }   
   return (
     <div className="add-car-wrapper">
       <div className="uploading-div"><h2>Uploading Pictures...</h2></div>
@@ -216,6 +220,7 @@ export default function AddCar() {
           <input type="text" required placeholder='Brand' value={brand} onChange={e => setBrand(e.target.value)}/>
           <input type="text" required placeholder='Model'value={model} onChange={e => setModel(e.target.value)}/>
           <input type="text" required placeholder='Category' value={category} onChange={e => setCategory(e.target.value)}/>
+          <input type="text" required placeholder='Price' value={price} onChange={e => setPrice(e.target.value)}/>
           <label>Select a main picture</label>
           <input type="file" onChange={e => setMainPicture(e.target.files[0])}/>
         </div>

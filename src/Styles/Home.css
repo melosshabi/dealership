@@ -80,6 +80,7 @@ body{
 }
 .name{
   position: relative;
+  font-size: 1em  ;
   top: -1px;
 }
 .caret-icon{
@@ -94,7 +95,7 @@ body{
   transform: rotate(0deg);
 }
 .more-options{
-  width: 150px;
+  width: 160px;
   height: 0;
   overflow:hidden;
   position:absolute;
@@ -115,6 +116,7 @@ body{
 .more-options a{
   padding:5px 2px;
   border-bottom:1px solid black;
+  font-size: .9em;
   transition: all 250ms;
 }
 .more-options a:hover{
@@ -210,7 +212,7 @@ body{
   cursor: pointer;
   color:White;
   background-color:rgb(29, 29, 29);
-  padding:5px 5px;
+  padding:15px 15px;
   margin:20px 10px;
   border-radius: 10px;
 }

@@ -5,17 +5,19 @@ import Xicon from '../images/x-icon.svg';
 
 export default function CarDetails() {
   let location = useLocation()
-  let {carBrand, carModel, color1Name, color1Spin, color2Name, color2Spin, color3Name, color3Spin, interiorLink, engine, power, transmision, dimensions, fuel, carPrice, carStock, documentID } = location.state;
+  let {carBrand, carModel, color1Name, color1Spin, color1Stock, color2Name, color2Stock, color2Spin, color3Name, color3Stock, color3Spin, interiorLink, engine, transmision, dimensions, fuel, carPrice, documentID } = location.state;
   const [carColor, setCarColor] = useState(color1Name);
+  const [carStock, setStock] = useState(color1Stock)
   const [selectedColor, setSelectedColorSpin] = useState(color1Spin)
 
 
     // Funksioni qe e ndron ngjyren e kerit
-    function switchCarColor(colorName, colorSpin, targetButton){
+    function switchCarColor(colorName, colorStock, colorSpin, targetButton){
       let switchColorBtns = document.querySelectorAll('.switch-car-color-btn')
       switchColorBtns.forEach(btn => btn.classList.remove('selected-color'))
       targetButton.classList.add('selected-color')
       setCarColor(colorName)
+      setStock(colorStock)
       setSelectedColorSpin(colorSpin)
     }
 
@@ -41,19 +43,18 @@ export default function CarDetails() {
             <script src="https://scripts.sirv.com/sirv.js"></script>
             <iframe src={selectedColor}  width="100%" height="100%" frameBorder="0"></iframe>   
             <div className="car-colors">
-              <div className="switch-car-color-btn selected-color" style={{backgroundColor:color1Name}} onClick={e => switchCarColor(color1Name, color1Spin, e.target)}></div>
-              <div className="switch-car-color-btn" style={{backgroundColor:color2Name}} onClick={e => switchCarColor(color1Name, color2Spin, e.target)}></div>
-              <div className="switch-car-color-btn" style={{backgroundColor:color3Name}} onClick={e => switchCarColor(color1Name, color3Spin, e.target)}></div>
+              <div className="switch-car-color-btn selected-color" style={{backgroundColor:color1Name}} onClick={e => switchCarColor(color1Name, color1Stock, color1Spin, e.target)}></div>
+              <div className="switch-car-color-btn" style={{backgroundColor:color2Name}} onClick={e => switchCarColor(color2Name, color2Stock, color2Spin, e.target)}></div>
+              <div className="switch-car-color-btn" style={{backgroundColor:color3Name}} onClick={e => switchCarColor(color3Name, color3Stock, color3Spin, e.target)}></div>
             </div>
           </div>
-            <h2>{carBrand.toUpperCase() + ' ' + carModel}</h2>
-              
+            <h2 className='car-h2'>{carBrand.toUpperCase() + ' ' + carModel}</h2>
+            <p>Stock: {carStock}</p>
             <div className="car-specs">
                 <p><span className='car-specs-span'>Engine:</span> {engine}</p>
-                <p><span className='car-specs-span'>Power:</span> {power}</p>
                 <p><span className='car-specs-span'>Transimision:</span> {transmision}</p>
                 <p><span className='car-specs-span'>Dimensions:</span> {dimensions}</p>
-                <p><span className='car-specs-span'>C/D Fuel Economy:</span> {fuel}</p>
+                <p><span className='car-specs-span'>Fuel:</span> {fuel}</p>
                 <p><span className='car-specs-span' >Price:</span> ${carPrice}</p>
                 <div className="btns-wrapper">
                 <button className="interior-btn" onClick={toggleInterior}>View Interior</button>

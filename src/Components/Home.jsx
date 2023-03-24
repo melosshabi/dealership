@@ -77,15 +77,14 @@ export default function Home(){
         
         <section className="cars-section">
           {cars.map(car =>{
-            console.log(car)
             return (
               <div key={uuidv4()} className="cars-div">
                 <img src={car.mainPicture}/>
                 <div className="cars-details">
-                  <span>{car.carCategory}</span>
                   <p>{car.carBrand.toUpperCase()} {car.carModel}</p>
+                  <span>{car.carCategory}</span>
                   <span>$ {car.carPrice}</span>
-                <Link className="view-details-btn" to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, color1Name:car.carStock.color1Name, color1Spin:car.carStock.color1Spin, color1Stock:car.carStock.color1Stock, color2Name:car.carStock.color2Name, color2Spin:car.carStock.color2Spin, car2Stock:car.carStock.color2Stock, color3Name:car.carStock.color3Name, color3Spin:car.carStock.color3Spin, color3Stock:car.carStock.color3Stock, interiorLink:car.interiorLink, engine:car.carSpecs.engine, power:car.carSpecs.power, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
+                <Link className="view-details-btn" to='/carDetails' state={{documentID:car.id, carBrand:car.carBrand, carModel:car.carModel, color1Name:car.carStock.color1Name, color1Spin:car.carStock.color1Spin, color1Stock:car.carStock.color1Stock, color2Name:car.carStock.color2Name, color2Spin:car.carStock.color2Spin, color2Stock:car.carStock.color2Stock, color3Name:car.carStock.color3Name, color3Spin:car.carStock.color3Spin, color3Stock:car.carStock.color3Stock, interiorLink:car.interiorLink, engine:car.carSpecs.engine, transmision:car.carSpecs.transmision, dimensions:car.carSpecs.dimensions, fuel:car.carSpecs.fuel, carPrice:car.carPrice, carStock:{blackStock:car.carStock.blackStock, orangeStock:car.carStock.orangeStock, redStock:car.carStock.redStock, grayStock:car.carStock.grayStock, greenStock:car.carStock.greenStock}}}>View Details</Link>
                 </div>
               </div>
             )

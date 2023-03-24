@@ -36,7 +36,7 @@ export default function App() {
     .then(()=> {
       localStorage.clear()
       cookies.remove('auth-token')
-      window.location.pathname = "/"
+      window.location.reload()
     })
   }
 
