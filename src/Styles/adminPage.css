@@ -1,82 +1,132 @@
 .add-car-wrapper{
-    min-height: 100vh;
+    width: 100vw;
+    height: 92vh;
     margin-top: 8vh;
+    display: flex;
     color:white;
 }
 .uploading-div{
-    position: absolute;
     width: 100vw;
     height: 100vh;
+    top:0;
     background-color: rgba(0, 0, 0, .8);
-    margin-top:-20px;
+    z-index: 4;
+    position: absolute;
     display: none;
-    justify-content: center;
     align-items: center;
-    font-size: 1.5em;
+    justify-content: center;
+}
+.uploading-div h2{
+    font-size: 3em;
 }
 .add-car-form{
-    min-height: 90vh;
-    max-width: 50vw;
+    height: 90%;
+    width: 95%;
     margin:auto;
-    margin-top: 5%;
-    margin-bottom: 2%;
     border-radius: 10px;
-    box-shadow: 0 0 8px rgb(248, 175, 2);
-    background-color: rgb(47, 47, 47);
+    box-shadow: 0 0 5px orange;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-}
-.car-details, .car-specs, .car-stock-wrapper{
-    width: 100%;
-    display: flex;
     flex-direction: column;
+}
+.animation-div{
+    width: 50%;
+    height: 80%;
+    margin-top: 3%;
+    border:1px solid white;
+    border-radius: 8px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin:20px 0;
+    position: relative;
+    overflow: hidden;
 }
-.car-details{
-    width: 41%;
+.left-div{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left:-100%;
+    transition: all 550ms;
 }
-.car-specs h2{
+/* left div */
+.active-left-div{
+    left:50%;
+    transform:translateX(-50%)
+}
+/* center div */
+.center-div{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    right:-100%;
+    transition: all 550ms;
+}
+.active-center-div{
+    right:50%;
+    transform: translateX(50%);
+}
+.inactive-center-div{
+    right:100%;
+}
+/* right div */
+.right-div{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    right:-100%;
+    transition: all 550ms;
+}
+.active-right-div{
+    right:50%;
+    transform: translateX(50%);
+}
+.car-details, .add-car-specs, .car-stock{
     width: 100%;
-    text-align: center;
-}
-.car-details input, .car-specs input{
-    width:100%;
-}
-.add-car-form input{
-    font-size: 1em;
-    padding:5px 10px;
-    border:none;
-    border-radius: 8px;
-    margin:10px 0;
-}
-.color-wrapper{
-    min-height: 100px;
-    margin:10px 0;
+    height: 100%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
 }
-.color-wrapper input{
-    width: 100%;
+.car-details h2, .add-car-specs h2, .car-stock h2{
+    font-size: 2em;
+    margin-bottom: 30px;
 }
-.color-wrapper input[type="file"]{
-    text-align: center;
-    font-size: .8em;
-}
-.color-wrapper label{
+.car-details input, .add-car-specs input, .car-stock input{
+    width: 50%;
+    margin:5px 0;
     font-size: 1em;
-}
-.add-car-btn{
-    margin:15px 0;
-    padding:5px 75px;
+    padding:5px 15px;
+    border-radius: 5px;
     border:none;
-    border-radius: 8px;
-    background-color: rgba(248, 175, 2);
+}
+.add-car-btns-wrapper{
+    height: fit-content;
+    width: 30%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: cyan; */
+}
+.next-btn, .back-btn, .add-car-btn{
+    background-color: orange;
     color:white;
-    font-size: 1.5em;
+    font-size: 2em;
+    border:none;
+    border-radius: 5px;
+    padding:6px 60px;
     cursor: pointer;
+    display: none;
+}
+.active-next-btn{
+    display: block;
+    /* margin-left: 80px; */
+}
+.active-back-btn{
+    display: block;
+}
+.active-add-car-btn{
+    display: block;
 }

@@ -63,7 +63,7 @@ textarea{
 .send-btn:active{
     background-color: rgb(200, 147, 26);
 }
-/* iPad Pro */
+/* iPad Pro 12 inch*/
 @media (max-width:1024px) and (max-height:1366px){
     .contact-div h2{
         font-size: 3em;
@@ -71,6 +71,9 @@ textarea{
     }
     .contact-form{
         width: 90%;
+    }
+    .contact-form input{
+        padding-left: 10px;
     }
 }
 /* Nest Hub */
@@ -99,7 +102,6 @@ textarea{
     }
     .contact-form{
         width: 90%;
-        /* background-color: red; */
         font-size: 2em;
         justify-content: space-around;
     }

@@ -24,13 +24,11 @@ export default function CarDetails() {
     // Funksioni qe e shfaq interiorin
     function toggleInterior(){
       const interiorWrapper = document.getElementsByClassName('interior-wrapper')[0]
-      const body = document.querySelector('body')
 
       if(!interiorWrapper.classList.contains('active-interior')){
         document.documentElement.scrollTo(0, 0)
         interiorWrapper.classList.add('active-interior')
         document.documentElement.style.overflow = 'hidden'
-        // body.style.overflow = 'hidden'
         console.log(document.documentElement.style.overflow)
         console.log("added")
       }else{

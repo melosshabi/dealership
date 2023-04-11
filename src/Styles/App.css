@@ -59,8 +59,6 @@
   width: 20px;
   display: inline;
   vertical-align: top;
-  /* margin-bottom: 10px; */
-  /* background-color: red; */
   transform: rotate(180deg);
   cursor: pointer;
   transition: 450ms;
@@ -118,6 +116,7 @@
   width: 100%;
   background-color: white;
 }
+/* Sidebar */
 .sidebar{
   width: 100vw;
   height: 100vh;
@@ -145,7 +144,6 @@
   width: 100%;
   height: 35%;
   margin-top: 20%;
-  /* background-color: orange; */
   list-style: none;
   font-size: 1.8em;
   display: flex;
@@ -161,51 +159,10 @@
   text-decoration: none;
   margin-left: 20px;
 }
-.sign-in-sidebar-div{
-  width: 100%;
-  height: 10%;
-  position: absolute;
-  background-color: orange;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-#sidebar-name-more-options-wrapper{
-  background-color: red;
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-.sidebar-more-options-btn{
-  background: none;
-  border:none;
-  color:white;
-  margin-left: 10px;
-}
-.sidebar-more-options{
-  width: 150px;
-  height: 120px;
-  position: absolute;
-  top:-150px;
-  left: 10px;
-  padding:10px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
-}
-.sidebar-more-options a{
-  padding:5px 2px;
-  border-bottom:1px solid black;
-  transition: all 250ms;
-}
 .sidebar-more-options a:hover{
   background-color: rgba(0, 0, 0, .2);
 }
 .sign-out-btn{
-  /* width: 80px; */
-  /* height: 80px; */
   margin-right: 20px;
 }
 .sign-out-btn img{

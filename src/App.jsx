@@ -13,7 +13,6 @@ import SignUp from './Components/SignUp'
 import UsersMessagesReader from './Components/UsersMessagesReader'
 import TestDriveRequests from './Components/TestDriveRequests'
 import UpdateStock from './Components/UpdateStock'
-import TestingSirvAPI from './Components/TestingSirvAPI'
 // Ikonat
 import signOutIcon from './images/sign-out-icon.png'
 import caret from './images/caret.svg'
@@ -40,11 +39,24 @@ export default function App() {
     })
   }
 
-  function toggleMoreOptions(){
-    const moreOptionsDiv = document.getElementsByClassName('more-options')[0]
-    const caret = document.getElementsByClassName('caret-icon')[0]
-    moreOptionsDiv.classList.toggle('active-options')
-    caret.classList.toggle('caret-active')
+  // targetMoreOptionsMenu refers to either the 'More Options' menu of the nav bar or the menu of the sidebar
+  function toggleMoreOptions(target, targetMoreOptionsMenu){
+    console.log(targetMoreOptionsMenu)
+    if(targetMoreOptionsMenu === 'nav'){
+      const moreOptionsDiv = document.getElementsByClassName('more-options')[0]
+      const caret = document.getElementsByClassName('caret-icon')[0]
+      moreOptionsDiv.classList.toggle('active-options')
+      caret.classList.toggle('caret-active')
+    }else if(targetMoreOptionsMenu === 'side'){
+      const moreOptionsDiv = document.getElementsByClassName('sidebar-more-options')[0]
+      const a = [...document.querySelectorAll('.sidebar-more-options a')]
+
+      moreOptionsDiv.classList.toggle("active-sidebar-more-options")
+
+      if(a.includes(target)){
+        document.querySelector('.sidebar').classList.toggle('active-sidebar')
+      }
+    }
   }
 
   function toggleSidebar(){
@@ -61,7 +73,19 @@ export default function App() {
               <li><Link className="navigation-links" to="/about">About us</Link></li>
               <li><Link className="navigation-links" to="/contact">Contact</Link></li>
               {!localStorage.getItem('name') && <li><Link to="/signIn" className='sign-in-link'>Sign In</Link></li>}
-              <div id="name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} <div className="more-options"><Link to="/usersMessages" onClick={toggleMoreOptions}>User Messages</Link><Link to="/testDriveRequests" onClick={toggleMoreOptions}>Test Drive Requests</Link><Link to="/addCar" onClick={toggleMoreOptions}>Add Car</Link><Link to="/updateStock" onClick={toggleMoreOptions}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <img className="caret-icon" src={caret} alt="Caret" onClick={toggleMoreOptions}/> }</div>
+              <div id="name-more-options-wrapper">
+                {localStorage.getItem('name') && 
+                  <label className='name'>
+                    {localStorage.getItem('name')} 
+                    <div className="more-options">
+                      <Link to="/usersMessages" onClick={e => toggleMoreOptions(e.target, 'nav')}>User Messages</Link>
+                      <Link to="/testDriveRequests" onClick={e => toggleMoreOptions(e.target, 'nav')}>Test Drive Requests</Link>
+                      <Link to="/addCar" onClick={e => toggleMoreOptions(e.target, 'nav')}>Add Car</Link>
+                      <Link to="/updateStock" onClick={e => toggleMoreOptions(e.target, 'nav')}>Update Cars Stock</Link>
+                    </div>
+                  </label>} 
+
+              {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <img className="caret-icon" src={caret} alt="Caret" onClick={e => toggleMoreOptions(e.target, 'nav')}/> }</div>
               {isAuth && <button className="sign-out-btn" onClick={logOut}><img src={signOutIcon} alt="Sign out button"/></button>}
             </ul>
 
@@ -80,7 +104,16 @@ export default function App() {
               </ul>
               <div className="sign-in-sidebar-div">
                 {!localStorage.getItem('name') && <Link to="/signIn" onClick={toggleSidebar} className='sign-in-link'>Sign In</Link>}
-                <div id="sidebar-name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} <div className="sidebar-more-options"><Link to="/usersMessages" onClick={toggleMoreOptions}>User Messages</Link><Link to="/testDriveRequests" onClick={toggleMoreOptions}>Test Drive Requests</Link><Link to="/addCar" onClick={toggleMoreOptions}>Add Car</Link><Link to="/updateStock" onClick={toggleMoreOptions}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <button className="sidebar-more-options-btn">···</button> }</div>
+                <div id="sidebar-name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} 
+                <div className="sidebar-more-options">
+                  <Link to="/usersMessages" onClick={e => toggleMoreOptions(e.target, 'side')}>User Messages</Link>
+                  <Link to="/testDriveRequests" onClick={e => toggleMoreOptions(e.target, 'side')}>Test Drive Requests</Link>
+                  <Link to="/addCar" onClick={e => toggleMoreOptions(e.target, 'side')}>Add Car</Link>
+                  <Link to="/updateStock" onClick={e => toggleMoreOptions(e.target, 'side')}>Update Cars Stock</Link>
+                </div>
+
+                  </label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <button className="sidebar-more-options-btn" onClick={e => toggleMoreOptions(e.target, 'side')}>···</button> }</div>
+
                 {isAuth && <button className="sign-out-btn" onClick={logOut}><img src={signOutIcon} alt="Sign out button"/></button>}
               </div>
             </div>
@@ -96,7 +129,6 @@ export default function App() {
             <Route path="/usersMessages" exact element={<UsersMessagesReader/>}/>
             <Route path="/testDriveRequests" exact element={<TestDriveRequests/>}/>
             <Route path="/updateStock" exact element={<UpdateStock/>}/>
-            <Route path="/api" exact element={<TestingSirvAPI/>}/> 
           </Routes>
         </HashRouter>
         </>

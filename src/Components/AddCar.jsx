@@ -70,7 +70,7 @@ export default function AddCar() {
     const [interiorPictures, setInteriorPictures] = useState(null)
     const [mainPicture, setMainPicture] = useState(null)
 
-    async function UploadCar(e){
+    async function uploadCar(e){
         e.preventDefault();
 
         let uploadingDiv = document.getElementsByClassName('uploading-div')[0]
@@ -211,57 +211,97 @@ export default function AddCar() {
           alert("Car added successfully")
           window.location.reload()})
     }   
+
+    function switchActiveDiv(action){
+      const leftDiv = document.querySelector('.left-div')
+      const centerDiv = document.querySelector('.center-div')
+      const rightDiv = document.querySelector('.right-div')
+      const nextBtn = document.querySelector('.next-btn')
+      const backBtn = document.querySelector('.back-btn')
+      const addCarBtn = document.querySelector('.add-car-btn')
+
+      if(action === 'next'){
+        if(leftDiv.classList.contains('active-left-div')){
+          leftDiv.classList.remove('active-left-div')
+          centerDiv.classList.add('active-center-div')
+          backBtn.classList.add('active-back-btn')
+        }else if(centerDiv.classList.contains('active-center-div')){
+          centerDiv.classList.remove('active-center-div')
+          centerDiv.classList.add('inactive-center-div')
+          rightDiv.classList.add('active-right-div')
+          nextBtn.classList.remove('active-next-btn')
+          addCarBtn.classList.add('active-back-btn')
+        }
+      }else if(action === 'prev'){
+          if(centerDiv.classList.contains('active-center-div')){
+            centerDiv.classList.remove('active-center-div')
+            leftDiv.classList.add('active-left-div')
+            backBtn.classList.remove('active-back-btn')
+          }else if(rightDiv.classList.contains('active-right-div')){
+            rightDiv.classList.remove('active-right-div')
+            centerDiv.classList.remove('inactive-center-div')
+            centerDiv.classList.add('active-center-div')
+            nextBtn.classList.add('active-next-btn')
+            addCarBtn.classList.remove('active-back-btn')
+          }
+      }
+    }
   return (
     <div className="add-car-wrapper">
-      <div className="uploading-div"><h2>Uploading Pictures...</h2></div>
-      <form className='add-car-form' onSubmit={e => UploadCar(e)}>
-        <div className="car-details">
-          <h2>Car Details</h2>
-          <input type="text" required placeholder='Brand' value={brand} onChange={e => setBrand(e.target.value)}/>
-          <input type="text" required placeholder='Model'value={model} onChange={e => setModel(e.target.value)}/>
-          <input type="text" required placeholder='Category' value={category} onChange={e => setCategory(e.target.value)}/>
-          <input type="text" required placeholder='Price' value={price} onChange={e => setPrice(e.target.value)}/>
-          <label>Select a main picture</label>
-          <input type="file" onChange={e => setMainPicture(e.target.files[0])}/>
-        </div>
+      <div className="uploading-div">
+        <h2>Adding Car...</h2>
+      </div>
+      <form className="add-car-form" noValidate onSubmit={e => uploadCar(e)}>
 
-        <div className="car-specs">
-          <h2>Car Specs</h2>
-        <input type="text" required placeholder='Engine' value={engine} onChange={e => setEngine(e.target.value)}/>
-        <input type="text" required placeholder='Transmission' value={transmision} onChange={e => setTransmision(e.target.value)}/>
-        <input type="text" required placeholder='Fuel' value={fuel} onChange={e => setFuel(e.target.value)}/>
-        <input type="text" required placeholder='Dimensions' value={dimensions} onChange={e => setDimensions(e.target.value)}/>
-        </div>
+          <div className="animation-div">
 
-        <div className="car-stock-wrapper">
-          <h2>Car Stock</h2>
-          <div className="color-wrapper">
-            <input className="color-name"  required type="text" placeholder='Enter color name' value={color1} onChange={e => setColor1(e.target.value)}/>
-            <input className='color-stock' required  type='number' placeholder='Enter the stock of the selected color' value={color1Stock} onChange={e => setColor1Stock(e.target.value)}/>
-            <label>Select the images of the desired color</label>
-            <input type="file" multiple onChange={e => setColor1Images(e.target.files)}/> 
+            <div className="left-div active-left-div">
+              <div className="car-details">
+                <h2>Car Details</h2>
+                <input type="text" placeholder='Brand' required value={brand} onChange={e => setBrand(e.target.value)}/>
+                <input type="text" placeholder='Model' required value={model} onChange={e => setModel(e.target.value)}/>
+                <input type="text" placeholder='Category' required value={category} onChange={e => setCategory(e.target.value)}/>
+                <input type="text" placeholder='Price' required value={price} onChange={e => setPrice(e.target.value)}/>
+                <label>Select a main picture</label>
+                <input type="file" style={{color:'white'}}/>
+              </div>
+            </div>
+
+            <div className="center-div">
+              <div className="add-car-specs">
+                <h2>Car Specs</h2>
+                <input type="text" placeholder='Engine' required value={engine} onChange={e => setEngine(e.target.value)}/>
+                <input type="text" placeholder='Transmision' required value={transmision} onChange={e => setTransmision(e.target.value)}/>
+                <input type="text" placeholder='Fuel' required value={fuel} onChange={e => setFuel(e.target.value)}/>
+                <input type="text" placeholder='Dimensions' required value={dimensions} onChange={e => setDimensions(e.target.value)}/>
+              </div>
+            </div>
+            <div className="right-div">
+              <div className="car-stock">
+                <h2>Car Stock</h2>
+                {/* Color 1 */}
+                <input type="text" placeholder='Enter Color Name' required value={color1} onChange={e => setColor1(e.target.value)}/>
+                <input type="text" placeholder='Enter the stock of the selected color' required value={color1Stock} onChange={e => setColor1Stock(e.target.value)}/>
+                <input type="file" multiple required onChange={e => setColor1Images(e.target.value)}/>
+
+                {/* Color 2 */}
+                <input type="text" placeholder='Enter Color Name' required value={color2} onChange={e => setColor2(e.target.value)}/>
+                <input type="text" placeholder='Enter the stock of the selected color' required value={color2Stock} onChange={e => setColor2Stock(e.target.value)}/>
+                <input type="file" multiple required onChange={e => setColor2Images(e.target.value)}/>
+
+                {/* Color 3 */}
+                <input type="text" placeholder='Enter Color Name' required value={color3} onChange={e => setColor3(e.target.value)}/>
+                <input type="text" placeholder='Enter the stock of the selected color' required value={color3Stock} onChange={e => setColor3Stock(e.target.value)}/>
+                <input type="file" multiple required onChange={e => setColor3Images(e.target.value)}/>
+              </div>
+            </div>
           </div>
 
-          <div className="color-wrapper">
-          <input className="color-name" type="text" required placeholder='Enter color name' value={color2} onChange={e => setColor2(e.target.value)}/>
-            <input className='color-stock' type='number' required placeholder='Enter the stock of the selected color' value={color2Stock} onChange={e => setColor2Stock(e.target.value)}/>
-            <label>Select the images of the desired color</label>
-            <input type="file" multiple onChange={e => setColor2Images(e.target.files)}/> 
+          <div className="add-car-btns-wrapper">
+            <button className="back-btn" type="button" onClick={() => switchActiveDiv('prev')}>Back</button>
+            <button className="next-btn active-next-btn" type="button" onClick={() => switchActiveDiv('next')}>Next</button>
+            <button className="add-car-btn" type="submit">Add Car</button>
           </div>
-
-          <div className="color-wrapper">
-          <input className="color-name" type="text" required placeholder='Enter color name' value={color3} onChange={e => setColor3(e.target.value)}/>
-            <input className='color-stock' type='number' required placeholder='Enter the stock of the selected color' value={color3Stock} onChange={e => setColor3Stock(e.target.value)}/>
-            <label>Select the images of the desired color</label>
-            <input type="file" multiple onChange={e => setColor3Images(e.target.files)}/>
-
-            <h3>Interior Pictures</h3>
-            <input type="file" multiple onChange={e => setInteriorPictures(e.target.files)}/>
-          </div>
-
-        </div>
-
-        <button className="add-car-btn">Add Car</button>
       </form>
     </div>
   )
