@@ -79,7 +79,7 @@ export default function App() {
                 <li><Link onClick={toggleSidebar} to='/contact'>Contact</Link></li>
               </ul>
               <div className="sign-in-sidebar-div">
-                {!localStorage.getItem('name') && <li><Link to="/signIn" onClick={toggleSidebar} className='sign-in-link'>Sign In</Link></li>}
+                {!localStorage.getItem('name') && <Link to="/signIn" onClick={toggleSidebar} className='sign-in-link'>Sign In</Link>}
                 <div id="sidebar-name-more-options-wrapper">{localStorage.getItem('name') && <label className='name'>{localStorage.getItem('name')} <div className="sidebar-more-options"><Link to="/usersMessages" onClick={toggleMoreOptions}>User Messages</Link><Link to="/testDriveRequests" onClick={toggleMoreOptions}>Test Drive Requests</Link><Link to="/addCar" onClick={toggleMoreOptions}>Add Car</Link><Link to="/updateStock" onClick={toggleMoreOptions}>Update Cars Stock</Link></div></label>} {isAuth && userId === 'HA3XPxDZG8Y5YKZt1VTmgU6bf4a2' &&  <button className="sidebar-more-options-btn">···</button> }</div>
                 {isAuth && <button className="sign-out-btn" onClick={logOut}><img src={signOutIcon} alt="Sign out button"/></button>}
               </div>

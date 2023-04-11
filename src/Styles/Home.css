@@ -300,7 +300,6 @@ footer{
     height:25vh;
   }
 }
-
 /* Nest Hub */
 @media (max-width: 1024px) and (max-height:600px){
   .navbar{
@@ -388,8 +387,8 @@ footer{
   }
   /* Sidebar */
   .sidebar{
-    height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
     position: fixed;
     top:0;
     right:-100vw;
@@ -519,6 +518,13 @@ footer{
   .cars-div{
     width: 50vw;
   }
+  .sidebar-ul{
+    margin-top: 50%;
+    height: 30%;
+  }
+  .sidebar a{
+    font-size: .9em;
+  }
 }
 /* iPhone XR */
 @media (max-width:414px) and (max-width:896px){
@@ -572,7 +578,9 @@ footer{
   .sidebar-ul {
     height: 35%;
   }
-  
+  .sign-in-link{
+    width: 14%;
+  }
 }
 /* S10/S10+ */
 @media (max-width:360px){

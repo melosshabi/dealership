@@ -24,16 +24,20 @@ export default function CarDetails() {
     // Funksioni qe e shfaq interiorin
     function toggleInterior(){
       const interiorWrapper = document.getElementsByClassName('interior-wrapper')[0]
-      interiorWrapper.classList.toggle('active-interior')
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
-      document.body.classList.toggle('bodyScrollDisabled')
+      const body = document.querySelector('body')
 
-      if(!document.documentElement.classList.contains('htmlScrollDisabled')) {
-        document.documentElement.classList.add('htmlScrollDisabled')
-      } else if(document.documentElement.classList.contains('htmlScrollDisabled')){
-        document.documentElement.classList.remove('htmlScrollDisabled')
-      } 
+      if(!interiorWrapper.classList.contains('active-interior')){
+        document.documentElement.scrollTo(0, 0)
+        interiorWrapper.classList.add('active-interior')
+        document.documentElement.style.overflow = 'hidden'
+        // body.style.overflow = 'hidden'
+        console.log(document.documentElement.style.overflow)
+        console.log("added")
+      }else{
+        interiorWrapper.classList.remove("active-interior")
+        document.documentElement.style.overflowY = 'scroll'
+        console.log("remove")
+      }
     }
   return (
     <div className='car-wrapper'>
@@ -41,7 +45,7 @@ export default function CarDetails() {
         <div className="selected-car-details">
           <div className="car-canvas">
             <script src="https://scripts.sirv.com/sirv.js"></script>
-            <iframe src={selectedColor} frameBorder="0"></iframe>   
+            <iframe className="car-iframe" src={selectedColor} frameBorder="0"></iframe>   
             <div className="car-colors">
               <div className="switch-car-color-btn selected-color" style={{backgroundColor:color1Name}} onClick={e => switchCarColor(color1Name, color1Stock, color1Spin, e.target)}></div>
               <div className="switch-car-color-btn" style={{backgroundColor:color2Name}} onClick={e => switchCarColor(color2Name, color2Stock, color2Spin, e.target)}></div>
@@ -64,7 +68,7 @@ export default function CarDetails() {
                 {/* div-i i interiorit */}
                 <div className="interior-wrapper">
                   <button className="close-interior-btn" onClick={toggleInterior}><img className="x-icon" src={Xicon}/></button>
-                  <iframe src={interiorLink} width="90%" height="90%" frameBorder="0"></iframe>
+                  <iframe className="interior-iframe" src={interiorLink} frameBorder="0"></iframe>
                 </div>
             </div>
         </div>
