@@ -41,7 +41,7 @@ export default function CarDetails() {
         <div className="selected-car-details">
           <div className="car-canvas">
             <script src="https://scripts.sirv.com/sirv.js"></script>
-            <iframe src={selectedColor}  width="100%" height="100%" frameBorder="0"></iframe>   
+            <iframe src={selectedColor} frameBorder="0"></iframe>   
             <div className="car-colors">
               <div className="switch-car-color-btn selected-color" style={{backgroundColor:color1Name}} onClick={e => switchCarColor(color1Name, color1Stock, color1Spin, e.target)}></div>
               <div className="switch-car-color-btn" style={{backgroundColor:color2Name}} onClick={e => switchCarColor(color2Name, color2Stock, color2Spin, e.target)}></div>

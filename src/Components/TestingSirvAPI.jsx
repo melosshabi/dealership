@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../Styles/api.css'
+// import '../Styles/api.css'
 
 const TestingSirvAPI = () => {
 
