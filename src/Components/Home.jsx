@@ -12,8 +12,6 @@ export default function Home(){
 
     // Funksioni per Slideshow
     useEffect(() =>{
-      
-      if(document.readyState != "ready"){
           let homeImages = document.getElementsByClassName('home-images')
           let counter = 1
           if(counter <= homeImages.length){
@@ -26,7 +24,6 @@ export default function Home(){
               }
             }, 3000)
           }
-        }
       return () => clearInterval(imageInterval)
     }, [])
   
